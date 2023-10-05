@@ -10,7 +10,7 @@
     * [Essay](https://github.com/Stt1xX/Studies/blob/323978a414010b17c5b545a45ca2e014ad312140/CommunicationAndTeamBuilding/Essay.docx)
     * [Workbook](https://github.com/Stt1xX/Studies/blob/323978a414010b17c5b545a45ca2e014ad312140/CommunicationAndTeamBuilding/WorkBook.pdf)
 * Databases
-    * [Readme](https://github.com/Stt1xX/Studies/blob/323978a414010b17c5b545a45ca2e014ad312140/Databases/README.md)
+    * [Readme](https://github.com/Stt1xX/Studies/blob/main/Databases/README.md)
     * [Lab1 DDL DML meating](https://github.com/Stt1xX/Studies/tree/323978a414010b17c5b545a45ca2e014ad312140/Databases/Lab1)
     * [Lab2 Requests](https://github.com/Stt1xX/Studies/tree/323978a414010b17c5b545a45ca2e014ad312140/Databases/Lab2)
     * [Lab3 Normalization PL/pgSQL](https://github.com/Stt1xX/Studies/tree/323978a414010b17c5b545a45ca2e014ad312140/Databases/Lab3)
