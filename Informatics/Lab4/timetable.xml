@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<timetable> 
+    <day>Среда</day>
+    <lesson>
+        <time>1330-1500</time>
+        <room>1330 (БЫВШ. 375) АУД.</room>
+        <subject>ОСНОВЫ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ(ЛАБ)</subject>
+        <teacher>Ткешелашвили Нино Мерабиевна</teacher>
+        <parityofweek>нечетная неделя</parityofweek>
+        <format>Очно - дистанционный</format>
+        <location>Кронверкский пр., д.49, лит.А</location>
+    </lesson>
+    <lesson>
+        <time>1140-1310</time>
+        <room>2332(БЫВШ. 324) АУД.</room><subject>ИНФОРМАТИКА(ЛАБ)</subject>
+        <teacher>Рыбаков Степан Дмитриевич</teacher>
+        <parityofweek>четная неделя</parityofweek>
+        <format>Очно - дистанционный</format>
+        <location>Кронверкский пр., д.49, лит.А</location>
+    </lesson>
+    <lesson>
+        <time>1330-1500</time>
+        <room>2332(БЫВШ. 324) АУД.</room>
+        <subject>ИНФОРМАТИКА(ЛАБ)</subject>
+        <teacher>Рыбаков Степан Дмитриевич</teacher>
+        <parityofweek>четная неделя</parityofweek>
+        <format>Очно - дистанционный</format>
+        <location>Кронверкский пр., д.49, лит.А</location>
+    </lesson>
+        <lesson>
+        <time>1140-1310</time>
+        <room>1330 (БЫВШ. 375) АУД.</room>
+        <subject>ОСНОВЫ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ(ЛАБ)</subject>
+        <teacher>Ткешелашвили Нино Мерабиевна</teacher>
+        <parityofweek>нечетная неделя</parityofweek>
+        <format>Очно - дистанционный</format>
+        <location>Кронверкский пр., д.49, лит.А</location>
+    </lesson>
+</timetable>

@@ -1,0 +1,4 @@
+rootProject.name = 'MoviesClient'
+include 'src:Data'
+findProject(':src:Data')?.name = 'Data'
+

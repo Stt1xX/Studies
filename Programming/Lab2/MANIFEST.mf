@@ -1,0 +1,4 @@
+Main-Class: Lab2proga.Main.class
+Class-Path: Pokemon.jar
+Manifest-Version: 1.1
+Created-By: Timur Ha-ha

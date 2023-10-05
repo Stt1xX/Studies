@@ -1,0 +1,20 @@
+CREATE FUNCTION errorsInInsert() RETURNS trigger AS $func$
+BEGIN
+-- Проверяем, что размер волоса и его оттенок указаны
+IF NEW.size IS NULL THEN
+RAISE EXCEPTION $l$ hair's size cannot be null $l$;
+END IF;
+IF NEW.shade IS NULL THEN
+RAISE EXCEPTION $s$ hair's % cannot be null $s$, NEW.shade;
+END IF;
+
+--Проверяем, что размер волоса  положительный
+IF NEW.SIZE < 0 THEN
+RAISE EXCEPTION $n$ hair's size should be positive $n$;
+END IF;
+RETURN NEW;
+END;
+$func$ LANGUAGE plpgsql;
+
+CREATE TRIGGER errorsInInsertOrUpdate BEFORE INSERT OR UPDATE ON hair
+FOR EACH ROW EXECUTE FUNCTION errorsInInsert();
