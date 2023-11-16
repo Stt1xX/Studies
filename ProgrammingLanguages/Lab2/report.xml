@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<testsuite name="TestMyProgram-20231116144729" tests="4" time="0.062" failures="0" errors="0">
+	<testcase classname="TestMyProgram" name="test_negative" time="0.026"/>
+	<testcase classname="TestMyProgram" name="test_simple" time="0.027"/>
+	<testcase classname="TestMyProgram" name="test_too_long_but_legal" time="0.005"/>
+	<testcase classname="TestMyProgram" name="test_too_long_key" time="0.005"/>
+	<system-out><![CDATA[]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
