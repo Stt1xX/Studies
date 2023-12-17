@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="memory-allocator" targetName="test_try_memalloc_existing" />
+      <config projectName="memory-allocator" targetName="memalloc_exe" />
+      <config projectName="memory-allocator" targetName="check" />
+      <config projectName="memory-allocator" targetName="test_heap_init" />
+      <config projectName="memory-allocator" targetName="test_grow_heap" />
+      <config projectName="memory-allocator" targetName="test_memalloc" />
+      <config projectName="memory-allocator" targetName="memalloc" />
+      <config projectName="memory-allocator" targetName="test__free" />
+      <config projectName="memory-allocator" targetName="test_split_if_too_big" />
+      <config projectName="memory-allocator" targetName="test_alloc_region" />
+      <config projectName="memory-allocator" targetName="test_stubs" />
+      <config projectName="memory-allocator" targetName="test_try_merge_with_next" />
+      <config projectName="memory-allocator" targetName="test_find_good_or_last" />
+      <config projectName="memory-allocator" targetName="test_heap_term" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aeb2c3fe-e399-445b-acd1-7c31ada14592" name="Changes" comment="change config of tester and cmake">
+      <change afterPath="$PROJECT_DIR$/src/custom_tests.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/custom_tests.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mem.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mem.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mem_debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mem_debug.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2ZSAYJkgL1NeW3FuSBhRG35OJgj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "C/C++ File.main.c.executor": "Run",
+    "CMake Application.check.executor": "Run",
+    "CMake Application.memalloc.executor": "Debug",
+    "CMake Application.memalloc_exe.executor": "Run",
+    "CMake Application.test_split_if_too_big.executor": "Run",
+    "CTest Application.All CTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "ctest.advertisement.all.test.configuration.is.created": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/stt1xx/CLionProjects/assignment-4-memory-allocator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="CMake Application.memalloc_exe">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="memalloc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="memalloc" CONFIG_NAME="Debug" RUN_PATH="/usr/bin/clang">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="memalloc_exe" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="memalloc_exe" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="memalloc_exe">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test__free" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test__free" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test__free">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_alloc_region" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_alloc_region" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_alloc_region">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_find_good_or_last" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_find_good_or_last" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_find_good_or_last">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_grow_heap" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_grow_heap" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_grow_heap">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_heap_init" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_heap_init" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_heap_init">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_heap_term" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_heap_term" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_heap_term">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_memalloc" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_memalloc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_memalloc">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_split_if_too_big" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_split_if_too_big" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_split_if_too_big">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_stubs" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_stubs" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_try_memalloc_existing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_try_memalloc_existing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_try_memalloc_existing">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_try_merge_with_next" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="memory-allocator" TARGET_NAME="test_try_merge_with_next" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="memory-allocator" RUN_TARGET_NAME="test_try_merge_with_next">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All CTest" type="CTestRunConfiguration" factoryName="CTestRun" PROGRAM_PARAMS="--extra-verbose" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$CMakeCurrentLocalGenerationDir$" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_PATH="$CTestCurrentExecutableName$" EXPLICIT_BUILD_TARGET_NAME="all" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.memalloc" />
+      <item itemvalue="CMake Application.memalloc_exe" />
+      <item itemvalue="CMake Application.test__free" />
+      <item itemvalue="CMake Application.test_alloc_region" />
+      <item itemvalue="CMake Application.test_find_good_or_last" />
+      <item itemvalue="CMake Application.test_grow_heap" />
+      <item itemvalue="CMake Application.test_heap_init" />
+      <item itemvalue="CMake Application.test_heap_term" />
+      <item itemvalue="CMake Application.test_memalloc" />
+      <item itemvalue="CMake Application.test_split_if_too_big" />
+      <item itemvalue="CMake Application.test_stubs" />
+      <item itemvalue="CMake Application.test_try_memalloc_existing" />
+      <item itemvalue="CMake Application.test_try_merge_with_next" />
+      <item itemvalue="CTest Application.All CTest" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aeb2c3fe-e399-445b-acd1-7c31ada14592" name="Changes" comment="" />
+      <created>1702405155599</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702405155599</updated>
+      <workItem from="1702405157703" duration="1772000" />
+      <workItem from="1702408427856" duration="4453000" />
+      <workItem from="1702446032870" duration="12345000" />
+      <workItem from="1702464957644" duration="56000" />
+      <workItem from="1702466199249" duration="53587000" />
+      <workItem from="1702574468098" duration="1583000" />
+      <workItem from="1702645652515" duration="2134000" />
+      <workItem from="1702750479231" duration="28124000" />
+    </task>
+    <task id="LOCAL-00001" summary="test commit">
+      <option name="closed" value="true" />
+      <created>1702405303662</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702405303662</updated>
+    </task>
+    <task id="LOCAL-00002" summary="make mem.c. All sanitizers checks completed">
+      <option name="closed" value="true" />
+      <created>1702574117142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702574117142</updated>
+    </task>
+    <task id="LOCAL-00003" summary="change config of tester and cmake">
+      <option name="closed" value="true" />
+      <created>1702575082174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702575082174</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test commit" />
+    <MESSAGE value="make mem.c. All sanitizers checks completed" />
+    <MESSAGE value="change config of tester and cmake" />
+    <option name="LAST_COMMIT_MESSAGE" value="change config of tester and cmake" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

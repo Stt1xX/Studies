@@ -1,0 +1,16 @@
+# ninja log v5
+4	55	1702466321312508921	/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/debug/CMakeFiles/cmake.verify_globs	c47c3eca911a7622
+55	106	1702466321364508702	build.ninja	958c623b3c2cee7c
+0	11	0	/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/debug/CMakeFiles/cmake.verify_globs	c47c3eca911a7622
+0	116	1702466321492508164	CMakeFiles/memalloc.dir/out/build/ubsan/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	b2fc32dc22b5af41
+0	117	1702466321492508164	CMakeFiles/memalloc.dir/out/build/msan/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	8948c469545a0702
+0	117	1702466321492508164	CMakeFiles/memalloc.dir/out/build/release/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	50818daa388a4755
+117	184	1702466321556507896	CMakeFiles/memalloc.dir/out/build/lsan/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	f0262ba5b84888c1
+184	282	1702466321656507475	CMakeFiles/memalloc.dir/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	8ab6b97d52a60da6
+117	305	1702466321672507408	CMakeFiles/memalloc.dir/mem_debug.o	4bf88d36fd9727
+116	312	1702466321684507357	CMakeFiles/memalloc.dir/util.o	23ff56274b0838af
+283	346	1702466321720507205	CMakeFiles/memalloc.dir/out/build/asan/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.o	df20b34d4ad28291
+0	66	0	/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/debug/CMakeFiles/cmake.verify_globs	c47c3eca911a7622
+0	27	0	/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/debug/CMakeFiles/cmake.verify_globs	c47c3eca911a7622
+0	58	1702466447480023194	CMakeFiles/memalloc.dir/mem.o	18ef69ca59214fc7
+58	249	1702466447664022543	libmemalloc.a	315778c6c920306f
