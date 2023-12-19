@@ -1,4 +1,17 @@
+<%@ page import="com.example.Attempt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String isHit = (String) request.getAttribute("IsHit");
+    String time = (String) request.getAttribute("Time");
+    Integer x = (Integer) request.getAttribute("xCoord");
+    Double y = (Double) request.getAttribute("yCoord");
+    Double r = (Double) request.getAttribute("Radius");
+    Attempt attempt = new Attempt(x, y, r, isHit, time);
+    if (!Attempt.attemptIsValid(attempt)){
+        response.setStatus(400);
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +24,10 @@
 <section>
     <table id="generalTable">
         <caption id="header">
-            <% if (request.getParameter("IsHit").equals("Yes")){
+            <%
+                if (attempt.getIsHit().equals("Yes")){
                     out.println("That's<br>a hit!");
-            } else{
+                } else{
                     out.println("You've<br>missed!");
             }%>
         </caption>
@@ -42,29 +56,29 @@
                         </tr>
                         <tr>
                             <td>
-                                <%= request.getParameter("IsHit") %>
+                                <%= attempt.getIsHit() %>
                             </td>
                             <td>
-                                <%= request.getParameter("xCoord") %>
+                                <%= attempt.getX() %>
                             </td>
                             <td>
-                                <%= request.getParameter("yCoord") %>
+                                <%= attempt.getY() %>
                             </td>
                             <td>
-                                <%= request.getParameter("Radius") %>
+                                <%= attempt.getR() %>
                             </td>
                             <td>
-                                <%= request.getParameter("Time") %>
+                                <%= attempt.getTime() %>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                <div>
+                </div>
             </td>
         </tr>
         <tr>
             <td>
-                <form method="GET" action="./Controller">
+                <form method="GET" action="./">
                     <button id="Submit" type="submit">Try again!</button>
                 </form>
             </td>

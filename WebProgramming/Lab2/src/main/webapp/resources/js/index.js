@@ -136,7 +136,7 @@ function checkX(xcor){
 }
 
 function getPoints(){
-    fetch("./Controller?Points", {
+    fetch("./?Points", {
         method: "GET"
     })
     .then( response => {

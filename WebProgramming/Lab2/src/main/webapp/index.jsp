@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td width="50%">
-                <form id="myForm" method="GET" action="./Controller">
+                <form id="myForm" method="GET" action="/resultPage">
                     <table class="scallop" id="adjusting">
                         <tbody>
                         <tr>
