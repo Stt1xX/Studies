@@ -9,11 +9,8 @@
         <class>entity.AttemptEntity</class>
         <class>entity.SessionEntity</class>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/postgres"/>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="stt1xx"/>
-            <property name="hibernate.connection.password" value="Legolass1!"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="hibernate.connection.datasource" value="java:/PostgresDS"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
