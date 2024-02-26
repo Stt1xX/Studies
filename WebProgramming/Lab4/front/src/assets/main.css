@@ -1,3 +1,54 @@
+:root{
+    --backgroundColor: #2D1D5B;
+    --fontColor: #F792E3;
+    --borderColor: #110E28;
+}
+
+@font-face {
+    font-family: "BitCell";
+    src:  url("./fonts/bitcell_memesbruh03.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "FutureStyle";
+    src: url("./fonts/Exo-VariableFont_wght.ttf") format("truetype");
+}
+
 html {
+    background: url(./images/SpaceBackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body{
 
 }
+
+html, body{
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+.wrapper {
+    /*margin-bottom: 100px;*/
+}
+
+.content {
+    width: 100vw;
+    margin: 0 auto;
+    padding-bottom: 450px;
+}
+
+.scallop {
+    background-color: var(--backgroundColor);
+    border: 3px solid var(--borderColor);
+    border-radius: 15px;
+}
+
