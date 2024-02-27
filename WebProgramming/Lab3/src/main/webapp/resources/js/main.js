@@ -85,7 +85,7 @@ radius.addEventListener('input', function(event)
     }
     else {
         redR();
-        makeEmptyGraph(); // When Radius isn't specified we doesn't display figures obviously
+        makeEmptyGraph(); // When Radius isn't specified we don't display figures obviously
     }
 });
 

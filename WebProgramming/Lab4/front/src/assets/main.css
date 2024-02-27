@@ -14,14 +14,16 @@
     src: url("./fonts/Exo-VariableFont_wght.ttf") format("truetype");
 }
 
+*{
+    overflow: hidden;
+}
+
 html {
     background: url(./images/SpaceBackground.png);
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-body{
-
+    position: relative;
+    min-height: 100%;
 }
 
 html, body{
@@ -29,15 +31,6 @@ html, body{
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100vh;
-}
-
-html{
-    position: relative;
-    min-height: 100%;
-}
-
-.wrapper {
-    /*margin-bottom: 100px;*/
 }
 
 .content {
@@ -52,3 +45,20 @@ html{
     border-radius: 15px;
 }
 
+button:hover{
+    background-color: var(--fontColor);
+    color: var(--borderColor);
+    border-color: var(--borderColor);
+    transition: 0.5s;
+}
+
+button{
+    color: var(--fontColor);
+    vertical-align: middle;
+    border-radius: 20px;
+    border: 2px solid var(--fontColor);
+    background-color: var(--borderColor);
+    font-family: "FutureStyle", serif;
+    transition: 0.5s;
+    cursor:pointer;
+}
