@@ -3,7 +3,19 @@
 </template>
 
 <script setup>
-  import {onMounted} from "vue";
+  import {onMounted, ref} from "vue";
+
+  let radius = ref('');
+
+  function changeRadius(newRadius){
+    console.log(newRadius)
+    radius = newRadius
+    fill_graph()
+  }
+
+  defineExpose({
+    changeRadius
+  })
 
   //Utils
   //It is assumed that we are building a "square" graph
@@ -30,13 +42,7 @@
     axis_number = count_of_cell / 2; // number of axis x and y among other lines
     cell_size = canvas_size / count_of_cell // size of one cell
     ctx = canvas.getContext("2d");
-    clear();
-    draw_grid();
-    offset_the_center();
-    make_ticks();
-    make_heads();
-    anti_offset_the_center();
-
+    create_empty_graph()
   })
 
   //functions
@@ -167,24 +173,45 @@
     }
   }
 
-  // function draw_figures(){
-  //   let _local_radius = document.getElementById("");
-  //   ctx.fillStyle = figure_color;
-  //   ctx.fillRect(-(cell_size * _local_radius), 1, cell_size * _local_radius - 1, cell_size * _local_radius - 1);
-  //
-  //   ctx.beginPath();
-  //   ctx.moveTo(0, 0);
-  //   ctx.lineTo(cell_size * _local_radius, 0);
-  //   ctx.lineTo(0, cell_size * _local_radius);
-  //   ctx.fill();
-  //
-  //   ctx.beginPath();
-  //   ctx.moveTo(0, 0);
-  //   ctx.lineTo(-_local_radius * cell_size, 0);
-  //   ctx.arc(0, 0, _local_radius * cell_size, Math.PI, -(Math.PI / 2));
-  //   ctx.lineTo(0, _local_radius * cell_size / 2);
-  //   ctx.fill();
-  // }
+  function draw_figures(){
+    ctx.fillStyle = figure_color;
+
+    //second quarter of graph
+    ctx.fillRect(-(cell_size * radius) / 2, -(cell_size * radius) + 1, (cell_size * radius - 1) / 2, cell_size * radius - 1);
+
+    //third quarter of graph
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(-cell_size * radius, 0);
+    ctx.lineTo(0, cell_size * radius / 2);
+    ctx.fill();
+
+    //fourth quarter of graph
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(-radius * cell_size, 0);
+    ctx.arc(0, 0, radius * cell_size, 0, Math.PI / 2);
+    ctx.lineTo(0, radius * cell_size / 2);
+    ctx.fill();
+  }
+
+  function create_empty_graph(){
+    clear();
+    draw_grid();
+    offset_the_center();
+    make_ticks();
+    make_heads();
+    anti_offset_the_center();
+  }
+  function fill_graph(){
+    clear();
+    draw_grid();
+    offset_the_center();
+    make_ticks();
+    make_heads();
+    draw_figures();
+    anti_offset_the_center();
+  }
 
 </script>
 

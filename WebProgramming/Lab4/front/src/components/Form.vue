@@ -1,23 +1,35 @@
-<script setup>
-
-import Try from "@/components/ButtonTry.vue";
-</script>
-
 <template>
   <form>
     <div id="innerForm">
       <label for="coordinateX" class="itemLabel">Coordinate X: </label>
-      <input id="coordinateX" type="text" placeholder="Enter the number from -2 to 2" /><br>
+      <input id="coordinateX"  type="text" placeholder="Enter the number from -2 to 2" /><br>
       <label for="coordinateY" class="itemLabel">Coordinate Y: </label>
-      <input id="coordinateY" type="text" placeholder="Enter the number from -5 to 3"/><br>
+      <input id="coordinateY"  type="text" placeholder="Enter the number from -5 to 3"/><br>
       <label for="radius" class="itemLabel">Radius: </label>
-      <input  id="radius" type="text" placeholder="Enter the number from -2 to 2"/><br>
+      <input  id="radius"  v-on:input="changeRadius($event.target.value)" type="text" placeholder="Enter the number from -2 to 2"/><br>
       <Try />
     </div>
   </form>
 </template>
 
+<script setup>
+
+import Try from "@/components/ButtonTry.vue";
+
+defineProps({
+  changeRadius: {
+    type: Function,
+    required: true
+  }
+})
+
+</script>
+
 <style scoped>
+  p{
+    font-size: 10px;
+  }
+
   #innerForm{
     padding: 30px;
     text-align: center;
