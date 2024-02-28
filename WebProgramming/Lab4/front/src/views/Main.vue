@@ -42,6 +42,7 @@ function sentRadiusFromMain(newRadius){
 
 function sentCoordsFromMain(newX, newY){
   form.value.setCoords(newX, newY)
+  form.value.click()
 }
 
 </script>

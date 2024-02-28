@@ -1,14 +1,16 @@
 <template>
   <canvas id="canvas" width="550px" height="550px"
-          v-on:click="sentCoordsToMain(($event.clientX - rect.left - cell_size * axis_number) / cell_size,
-          -($event.clientY - rect.top - cell_size * axis_number) / cell_size);"></canvas>
+          v-on:click="sentCoordsToMain
+          (Math.round(($event.clientX - canvas.getBoundingClientRect().left - axis_number * cell_size) / cell_size * 10**5) / 10**5,
+          -Math.round(($event.clientY - canvas.getBoundingClientRect().top - axis_number * cell_size) / cell_size * 10**5) / 10**5);">
+
+  </canvas>
 </template>
 
 <script setup>
   import {onMounted} from "vue";
 
   let radius;
-  let rect;
 
   function setRadius(newRadius){
     radius = newRadius
@@ -26,8 +28,8 @@
     }
   })
 
-
   //Utils
+  let canvas;
   //It is assumed that we are building a "square" graph
   let size; // Radius of graph (size of axis / 2)
   let count_of_cell; // Diameter of graph (size of axis)
@@ -44,8 +46,7 @@
   let canvas_size;
 
   onMounted(() => {
-    const canvas = document.getElementById("canvas");
-    rect = canvas.getBoundingClientRect();
+    canvas = document.getElementById("canvas");
     canvas_size = canvas.height; // Can be canvas width
     size = 5; // !!!! Radius of graph (size of axis / 2) !!!!!!! - You can change
     count_of_cell = size * 2; // Diameter of graph (size of axis)
@@ -53,15 +54,7 @@
     axis_number = count_of_cell / 2; // number of axis x and y among other lines
     cell_size = canvas_size / count_of_cell // size of one cell
     ctx = canvas.getContext("2d");
-
     create_empty_graph()
-
-
-
-
-
-
-
   })
 
   //functions
