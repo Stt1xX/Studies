@@ -1,33 +1,172 @@
 <template>
   <form>
     <div id="innerForm">
-      <label for="coordinateX" class="itemLabel">Coordinate X: </label>
-      <input id="coordinateX"  type="text" placeholder="Enter the number from -2 to 2" /><br>
-      <label for="coordinateY" class="itemLabel">Coordinate Y: </label>
-      <input id="coordinateY"  type="text" placeholder="Enter the number from -5 to 3"/><br>
-      <label for="radius" class="itemLabel">Radius: </label>
-      <input  id="radius"  v-on:input="changeRadius($event.target.value)" type="text" placeholder="Enter the number from -2 to 2"/><br>
-      <Try />
+      <div class="wrapperInput">
+        <label for="coordinateX" class="itemLabel">Coordinate X: </label>
+        <input id="coordinateX" v-model="x" v-on:input="paintX"
+               type="text" placeholder="Enter the number from -2 to 2" maxlength="13"/>
+        <p id="coordinateXMessage" class="errorMessage">Coordinate X can't be empty!</p>
+      </div>
+      <div class="wrapperInput">
+        <label for="coordinateY" class="itemLabel">Coordinate Y: </label>
+        <input id="coordinateY" v-model="y" v-on:input="paintY"
+             type="text" placeholder="Enter the number from -5 to 3" maxlength="13"/>
+        <p id="coordinateYMessage" class="errorMessage">Coordinate X can't be empty!</p>
+      </div>
+      <div class="wrapperInput">
+        <label for="radius" class="itemLabel">Radius: </label>
+        <input  id="radius"  v-model="radius" v-on:input="paintRadius();
+                rIsValid(radius) && isPositive(radius) ? sentRadiusToMain(radius) : sentRadiusToMain(0);"
+                type="text" placeholder="Enter the number from -2 to 2" maxlength="13"/>
+        <p id="radiusMessage" class="errorMessage">Coordinate X can't be empty!</p>
+      </div>
+      <button type="button" v-on:click="click">
+        Try It!
+      </button>
     </div>
   </form>
 </template>
 
 <script setup>
 
-import Try from "@/components/ButtonTry.vue";
+import {onMounted, ref} from "vue";
+
+let x = ref('')
+let y = ref('')
+let radius = ref('')
+
+function setCoords(newX, newY){
+  x.value = newX;
+  y.value = newY;
+}
+
+defineExpose({
+  setCoords
+})
 
 defineProps({
-  changeRadius: {
+  sentRadiusToMain: {
     type: Function,
     required: true
   }
 })
 
+
+
+
+
+// Validation
+const isString = (str) => {
+  if (typeof str != "string") return false // we only process strings!
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+      !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
+const rIsValid = (radius) => isString(radius) && radius <= 2
+
+const isPositive = (radius) => radius >= 0
+
+const xIsValid = x => {
+  return isString(x) && x >= -2 && x <= 2;
+}
+
+const yIsValid = y => {
+  return isString(y) && y >= -5 && y <= 3;
+}
+
+//Painting logic
+
+let rInput,  yInput, xInput, coordinateXMessage, coordinateYMessage, radiusMessage
+
+onMounted(() => {
+  xInput = document.getElementById("coordinateX");
+  yInput = document.getElementById("coordinateY");
+  rInput = document.getElementById("radius");
+  coordinateXMessage = document.getElementById("coordinateXMessage");
+  coordinateYMessage = document.getElementById("coordinateYMessage");
+  radiusMessage = document.getElementById("radiusMessage");
+})
+
+
+function click(){
+  paintX()
+  paintY()
+  paintRadius()
+}
+
+function paintX(){
+  if (x.value === ''){
+    xInput.classList.add("errorInput")
+    coordinateXMessage.innerHTML = "Coordinate X can't be empty!"
+    coordinateXMessage.style.visibility = "visible"
+  }
+  else if (!xIsValid(x.value)) {
+    xInput.classList.add("errorInput")
+    coordinateXMessage.innerHTML = "Coordinate X is invalid!"
+    coordinateXMessage.style.visibility = "visible"
+  }
+  else {
+    xInput.classList.remove("errorInput")
+    coordinateXMessage.style.visibility = "hidden"
+  }
+}
+function paintY(){
+  if (y.value === ''){
+    yInput.classList.add("errorInput")
+    coordinateYMessage.innerHTML = "Coordinate Y can't be empty!"
+    coordinateYMessage.style.visibility = "visible"
+  }
+  else if (!yIsValid(y.value)) {
+    yInput.classList.add("errorInput")
+    coordinateYMessage.innerHTML = "Coordinate Y is invalid!"
+    coordinateYMessage.style.visibility = "visible"
+  }
+  else {
+    yInput.classList.remove("errorInput")
+    coordinateYMessage.style.visibility = "hidden"
+  }
+}
+
+function paintRadius(){
+  if (radius.value === ''){
+    rInput.classList.add("errorInput")
+    radiusMessage.innerHTML = "Radius can't be empty!"
+    radiusMessage.style.visibility = "visible"
+  }
+  else if (!rIsValid(radius.value)) {
+    rInput.classList.add("errorInput")
+    radiusMessage.innerHTML = "Radius is invalid!"
+    radiusMessage.style.visibility = "visible"
+  }
+  else if(!isPositive(radius.value)) {
+    rInput.classList.add("errorInput")
+    radiusMessage.innerHTML = "Radius should be positive!"
+    radiusMessage.style.visibility = "visible"
+  }
+  else {
+    rInput.classList.remove("errorInput")
+    radiusMessage.style.visibility = "hidden"
+  }
+}
+
 </script>
 
 <style scoped>
-  p{
-    font-size: 10px;
+
+  .wrapperInput{
+    margin-bottom: 30px;
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 13px;
+    text-align: left;
+    margin: 13px auto;
+    visibility: hidden;
+  }
+
+  input, p{
+    width: 80%;
   }
 
   #innerForm{
@@ -63,7 +202,6 @@ defineProps({
     opacity: 1;
     color: var(--fontColor);
     display: inline-block;
-    width: 80%;
     height: calc(2.25rem + 2px);
     padding: 0.375rem 0.75rem;
     font-family: inherit;
@@ -76,9 +214,35 @@ defineProps({
     border-bottom: 2px solid var(--fontColor);
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin-bottom: 50px;
   }
 
-  /* input style */
+  /* error input style */
 
+  .errorInput{
+    color : red;
+    border-bottom: 2px solid red;
+  }
+
+  .errorInput::placeholder{
+    color: red;
+  }
+
+  .errorInput:-webkit-autofill,
+  .errorInput:-webkit-autofill:hover,
+  .errorInput:-webkit-autofill:focus,
+  .errorInput:-webkit-autofill:active {
+    box-shadow: inset 0 0 20px 20px var(--backgroundColor);
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: red;
+    -webkit-text-stroke-color: red;
+  }
+
+  /* button */
+
+  button{
+    font-size: 30px;
+    border-radius: 40px;
+    width: 300px;
+    height: 60px;
+  }
 </style>

@@ -1,21 +1,31 @@
 <template>
-  <canvas id="canvas" width="550px" height="550px"></canvas>
+  <canvas id="canvas" width="550px" height="550px"
+          v-on:click="sentCoordsToMain(($event.clientX - rect.left - cell_size * axis_number) / cell_size,
+          -($event.clientY - rect.top - cell_size * axis_number) / cell_size);"></canvas>
 </template>
 
 <script setup>
-  import {onMounted, ref} from "vue";
+  import {onMounted} from "vue";
 
-  let radius = ref('');
+  let radius;
+  let rect;
 
-  function changeRadius(newRadius){
-    console.log(newRadius)
+  function setRadius(newRadius){
     radius = newRadius
     fill_graph()
   }
 
   defineExpose({
-    changeRadius
+    setRadius
   })
+
+  defineProps({
+    sentCoordsToMain:{
+      type: Function,
+      required: true
+    }
+  })
+
 
   //Utils
   //It is assumed that we are building a "square" graph
@@ -35,14 +45,23 @@
 
   onMounted(() => {
     const canvas = document.getElementById("canvas");
+    rect = canvas.getBoundingClientRect();
     canvas_size = canvas.height; // Can be canvas width
-    size = 6; // Radius of graph (size of axis / 2)
+    size = 5; // !!!! Radius of graph (size of axis / 2) !!!!!!! - You can change
     count_of_cell = size * 2; // Diameter of graph (size of axis)
     num_lines = count_of_cell + 1; // obviously number of lines
     axis_number = count_of_cell / 2; // number of axis x and y among other lines
     cell_size = canvas_size / count_of_cell // size of one cell
     ctx = canvas.getContext("2d");
+
     create_empty_graph()
+
+
+
+
+
+
+
   })
 
   //functions
@@ -216,4 +235,7 @@
 </script>
 
 <style scoped>
+  canvas{
+    cursor: pointer;
+  }
 </style>

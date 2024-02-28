@@ -4,11 +4,10 @@
       <Task />
     </div>
     <div id="form" class="scallop">
-      <Form :changeRadius="test"/>
+      <Form ref="form" :sentRadiusToMain="sentRadiusFromMain" />
     </div>
     <div id="graph" class="scallop">
-      <Graph ref="graph" />
-
+      <Graph ref="graph"  :sentCoordsToMain="sentCoordsFromMain"/>
     </div>
     <div id="buttonOut">
       <Out />
@@ -27,15 +26,23 @@ import Table from "@/components/Table.vue"
 import Task from "@/components/Task.vue"
 import Form from "@/components/Form.vue";
 
+
+
+// let x = ref('')
+// let y = ref('')
+// let radius = ref('');
+
 let graph = ref(null)
-function test(newRadius){
-  radius =newRadius
-  graph.value.changeRadius(newRadius)
+let form = ref(null)
+
+function sentRadiusFromMain(newRadius){
+  // radius = newRadius
+  graph.value.setRadius(newRadius)
 }
 
-let radius = ref('');
-let x = ref('')
-let y = ref('')
+function sentCoordsFromMain(newX, newY){
+  form.value.setCoords(newX, newY)
+}
 
 </script>
 
@@ -44,7 +51,7 @@ let y = ref('')
     flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
-    --graphHeight: 600px;
+    --graphHeight: 650px;
     font-family: "FutureStyle",serif;
     color: var(--fontColor);
     font-size: 35px;
@@ -57,15 +64,19 @@ let y = ref('')
   #form{
     width: 700px;
     height: var(--graphHeight);
-    margin-bottom: 100px; /* for small window Отступ перед графиком */
+    margin-bottom: 50px; /* for small window Отступ перед графиком */
   }
   #buttonOut, #tableWrap, #graph, #task{
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  #task, #tableWrap{
+  #task{
     margin: 100px 0;
+    width: 100%;
+  }
+  #buttonOut, #tableWrap{
+    margin: 70px 0;
     width: 100%;
   }
 </style>
