@@ -32,6 +32,11 @@ public class MainController {
         return objectMapper.writeValueAsString(attempt);
     }
 
+    @GetMapping
+    public String getIndexPage(){
+        return "index.html";
+    }
+
     @ResponseBody
     @GetMapping("receiveAttempts")
     public String receiveAttempts() throws JsonProcessingException {
