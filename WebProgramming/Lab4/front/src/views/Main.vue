@@ -4,46 +4,42 @@
       <Task />
     </div>
     <div id="form" class="scallop">
-      <Form ref="form" :sentRadiusToMain="sentRadiusFromMain" />
+      <Form ref="form" />
     </div>
     <div id="graph" class="scallop">
-      <Graph ref="graph"  :sentCoordsToMain="sentCoordsFromMain"/>
+      <Graph ref="graph" />
     </div>
     <div id="buttonOut">
       <Out />
     </div>
     <div id="tableWrap">
-      <Table />
+      <Table ref="table"/>
     </div>
   </div>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {provide, ref} from 'vue'
 import Graph from "@/components/Graph.vue";
 import Out from "@/components/ButtonOut.vue"
 import Table from "@/components/Table.vue"
 import Task from "@/components/Task.vue"
 import Form from "@/components/Form.vue";
 
-
-
-// let x = ref('')
-// let y = ref('')
-// let radius = ref('');
-
 let graph = ref(null)
 let form = ref(null)
+let table = ref(null)
 
-function sentRadiusFromMain(newRadius){
-  // radius = newRadius
-  graph.value.setRadius(newRadius)
-}
-
-function sentCoordsFromMain(newX, newY){
+provide('setCoords',  (newX, newY) => {
   form.value.setCoords(newX, newY)
   form.value.click()
-}
+})
+provide('addNewAttempt', (newAttempt) => {
+  table.value.addNewAttempt(newAttempt)
+})
+provide('setRadius', (newRadius) => {
+  graph.value.setRadius(newRadius)
+})
 
 </script>
 

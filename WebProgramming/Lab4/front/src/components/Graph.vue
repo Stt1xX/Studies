@@ -1,6 +1,6 @@
 <template>
   <canvas id="canvas" width="550px" height="550px"
-          v-on:click="sentCoordsToMain
+          v-on:click="setCoords
           (Math.round(($event.clientX - canvas.getBoundingClientRect().left - axis_number * cell_size) / cell_size * 10**5) / 10**5,
           -Math.round(($event.clientY - canvas.getBoundingClientRect().top - axis_number * cell_size) / cell_size * 10**5) / 10**5);">
 
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-  import {onMounted} from "vue";
+import {inject, onMounted} from "vue";
 
   let radius;
 
@@ -21,12 +21,7 @@
     setRadius
   })
 
-  defineProps({
-    sentCoordsToMain:{
-      type: Function,
-      required: true
-    }
-  })
+  const setCoords = inject('setCoords')
 
   //Utils
   let canvas;

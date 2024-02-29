@@ -16,11 +16,11 @@
       <div class="wrapperInput">
         <label for="radius" class="itemLabel">Radius: </label>
         <input  id="radius"  v-model="radius" v-on:input="paintRadius();
-                rIsValid(radius) && isPositive(radius) ? sentRadiusToMain(radius) : sentRadiusToMain(0);"
+                rIsValid(radius) && isPositive(radius) ? setRadius(radius) : setRadius(0);"
                 type="text" placeholder="Enter the number from -2 to 2" maxlength="13"/>
         <p id="radiusMessage" class="errorMessage">Coordinate X can't be empty!</p>
       </div>
-      <button type="button" v-on:click="click">
+      <button type="button" v-on:click="click()">
         Try It!
       </button>
     </div>
@@ -29,34 +29,10 @@
 
 <script setup>
 
-import {onMounted, ref} from "vue";
-
-let x = ref('')
-let y = ref('')
-let radius = ref('')
-
-function setCoords(newX, newY){
-  x.value = newX;
-  y.value = newY;
-}
-
-defineExpose({
-  setCoords,
-  click
-})
-
-defineProps({
-  sentRadiusToMain: {
-    type: Function,
-    required: true
-  }
-})
-
-
-
-
+import {inject, onMounted, ref} from "vue";
 
 // Validation
+
 const isString = (str) => {
   return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
       !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
@@ -88,10 +64,10 @@ onMounted(() => {
 })
 
 
-function click(){
-  paintX()
-  paintY()
-  paintRadius()
+async function click(){
+  if(paintX() & paintY() & paintRadius()){
+    await sentForm()
+  }
 }
 
 function paintX(){
@@ -99,15 +75,18 @@ function paintX(){
     xInput.classList.add("errorInput")
     coordinateXMessage.innerHTML = "Coordinate X can't be empty!"
     coordinateXMessage.style.visibility = "visible"
+    return false;
   }
   else if (!xIsValid(x.value)) {
     xInput.classList.add("errorInput")
     coordinateXMessage.innerHTML = "Coordinate X is invalid!"
     coordinateXMessage.style.visibility = "visible"
+    return false;
   }
   else {
     xInput.classList.remove("errorInput")
     coordinateXMessage.style.visibility = "hidden"
+    return true;
   }
 }
 function paintY(){
@@ -115,15 +94,18 @@ function paintY(){
     yInput.classList.add("errorInput")
     coordinateYMessage.innerHTML = "Coordinate Y can't be empty!"
     coordinateYMessage.style.visibility = "visible"
+    return false;
   }
   else if (!yIsValid(y.value)) {
     yInput.classList.add("errorInput")
     coordinateYMessage.innerHTML = "Coordinate Y is invalid!"
     coordinateYMessage.style.visibility = "visible"
+    return false;
   }
   else {
     yInput.classList.remove("errorInput")
     coordinateYMessage.style.visibility = "hidden"
+    return true;
   }
 }
 
@@ -132,22 +114,64 @@ function paintRadius(){
     rInput.classList.add("errorInput")
     radiusMessage.innerHTML = "Radius can't be empty!"
     radiusMessage.style.visibility = "visible"
+    return false;
   }
   else if (!rIsValid(radius.value)) {
     rInput.classList.add("errorInput")
     radiusMessage.innerHTML = "Radius is invalid!"
     radiusMessage.style.visibility = "visible"
+    return false;
   }
   else if(!isPositive(radius.value)) {
     rInput.classList.add("errorInput")
     radiusMessage.innerHTML = "Radius should be positive!"
     radiusMessage.style.visibility = "visible"
+    return false;
   }
   else {
     rInput.classList.remove("errorInput")
     radiusMessage.style.visibility = "hidden"
+    return true;
   }
 }
+
+//ajax request
+async function sentForm(){
+  await fetch('http://localhost:8080/sentForm', {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      x: x.value,
+      y: y.value,
+      radius: radius.value
+    })
+  }).then(point => point.json())
+      .then((point) => {
+        addNewAttempt(point)
+      })
+}
+
+//communication with other components
+
+let x = ref('')
+let y = ref('')
+let radius = ref('')
+
+function setCoords(newX, newY){
+  x.value = newX;
+  y.value = newY;
+}
+
+defineExpose({
+  setCoords,
+  click
+})
+
+const setRadius = inject('setRadius')
+const addNewAttempt = inject('addNewAttempt')
 
 </script>
 
