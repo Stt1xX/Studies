@@ -6,7 +6,7 @@
         <h1>Authorization</h1>
         <span>
           New?
-          <a href="http://localhost:5173/signUp" >Sign Up</a>
+          <router-link to="/signUp">Sign Un</router-link>
         </span>
         <p id="invalidAuthorizationMessage" class="errorMessage">Invalid username or password! Try again!</p>
         <div class="wrapperInput">
@@ -19,7 +19,7 @@
                  type="password" placeholder="Password" maxlength="20"/>
           <p id="passwordMessage" class="errorMessage">Field password can't be empty!</p>
         </div>
-        <button @click="click">Sign In</button>
+        <button @click="click() ? $router.push('/') : {}">Sign In</button>
       </div>
     </div>
   </div>
@@ -38,23 +38,28 @@ onMounted(() =>{
   passwordMessage = document.getElementById("passwordMessage")
 })
 function checkUsername(){
-  console.log(username)
-  if (username === '' || username === undefined)
+  if (username === '' || username === undefined) {
     usernameMessage.style.visibility = "visible"
-   else
+    return false;
+  } else{
     usernameMessage.style.visibility = "hidden"
+    return true;
+  }
 }
 
 function checkPassword(){
-  if (password === '' || password === undefined)
+  if (password === '' || password === undefined) {
     passwordMessage.style.visibility = "visible"
-  else
+    return false;
+  } else{
     passwordMessage.style.visibility = "hidden"
+    return true;
+  }
+
 }
 
 function click(){
-  checkUsername();
-  checkPassword();
+  return checkUsername() & checkPassword();
 }
 
 </script>

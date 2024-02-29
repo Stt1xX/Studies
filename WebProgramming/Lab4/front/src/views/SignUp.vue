@@ -6,7 +6,7 @@
         <h1>Registration</h1>
         <span>
           Already have an account?
-          <a href="http://localhost:5173/login" >Sign In</a>
+          <router-link to="/login">Sign In</router-link>
         </span>
         <div class="wrapperInput">
           <input id="username" v-model="username" @input="checkUsername"
@@ -23,7 +23,7 @@
                   type="password" placeholder="Confirm password" maxlength="20"/>
           <p id="ConfirmPasswordMessage" class="errorMessage">Passwords don't match!</p>
         </div>
-        <button @click="click">Sign Up</button>
+        <button @click="click() ? $router.push('/') : {}">Sign Up</button>
       </div>
     </div>
   </div>
@@ -43,31 +43,38 @@ onMounted(() =>{
   confirmPasswordMessage = document.getElementById("ConfirmPasswordMessage")
 })
 function checkUsername(){
-  console.log(username)
-  if (username === '' || username === undefined)
+  if (username === '' || username === undefined){
     usernameMessage.style.visibility = "visible"
-  else
+    return false;
+  } else{
     usernameMessage.style.visibility = "hidden"
+    return true;
+  }
 }
 
 function checkPassword(){
-  if (password === '' || password === undefined)
+  if (password === '' || password === undefined){
     passwordMessage.style.visibility = "visible"
-  else
+    return false;
+  } else{
     passwordMessage.style.visibility = "hidden"
+    return true;
+  }
+
 }
 
 function checkSecondPassword(){
-  if (secondPassword !== password)
+  if (secondPassword !== password){
     confirmPasswordMessage.style.visibility = "visible"
-  else
+    return false;
+  } else{
     confirmPasswordMessage.style.visibility = "hidden"
+    return true;
+  }
 }
 
 function click(){
-  checkUsername();
-  checkPassword();
-  checkSecondPassword();
+  return checkUsername() & checkPassword() & checkSecondPassword()
 }
 
 </script>

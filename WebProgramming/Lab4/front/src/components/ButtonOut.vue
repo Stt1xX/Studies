@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <button id="out">Bye-Bye</button>
+  <button @click="$router.push('login')">
+    Bye-Bye
+  </button>
 </template>
 
 <style scoped>
