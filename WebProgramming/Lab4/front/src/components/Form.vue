@@ -224,6 +224,7 @@ const addNewAttempt = inject('addNewAttempt')
 
   input{
     opacity: 1;
+    margin-top: 5px;
     color: var(--fontColor);
     display: inline-block;
     height: calc(2.25rem + 2px);
@@ -249,6 +250,11 @@ const addNewAttempt = inject('addNewAttempt')
 
   .errorInput::placeholder{
     color: red;
+    font-size: 1rem;
+  }
+
+  input::placeholder{
+    font-size: 1rem;
   }
 
   .errorInput:-webkit-autofill,
