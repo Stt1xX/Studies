@@ -1,5 +1,6 @@
 package itmo.spring.meeting.back.model.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,7 +12,16 @@ import java.util.Calendar;
 @Entity(name = "attempts")
 @Component
 public class Attempt {
-    private String x, y, radius, time, isHit;
+    @Column(nullable = false)
+    private String x;
+    @Column(nullable = false)
+    private String y;
+    @Column(nullable = false)
+    private String radius;
+    @Column(nullable = false)
+    private String time;
+    @Column(nullable = false)
+    private String isHit;
     public static Attempt ERROR_ATTEMPT = new Attempt("null", "null", "null", "null", "null");
 
     @Id

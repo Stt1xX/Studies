@@ -72,15 +72,11 @@ function checkSecondPassword(){
   }
 }
 
-const token = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
-
 async function sentForm(){
-  console.log(token)
   await fetch('http://localhost:8080/api-signUp', {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
-      'X-XSRF-TOKEN': token
     },
     body: JSON.stringify({
       username: username,
