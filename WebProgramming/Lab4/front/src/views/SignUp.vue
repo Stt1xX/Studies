@@ -23,7 +23,7 @@
                   type="password" placeholder="Confirm password" maxlength="20"/>
           <p id="ConfirmPasswordMessage" class="errorMessage">Passwords don't match!</p>
         </div>
-        <button @click="click() ? $router.push('/') : {}">Sign Up</button>
+        <button @click="click() ? $router.push('main') : {}">Sign Up</button>
       </div>
     </div>
   </div>

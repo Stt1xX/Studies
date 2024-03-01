@@ -2,8 +2,10 @@ package itmo.spring.meeting.back.controlllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itmo.spring.meeting.back.Model.Attempt;
-import itmo.spring.meeting.back.Model.DataBaseManager;
+import itmo.spring.meeting.back.model.entities.Attempt;
+import itmo.spring.meeting.back.model.entities.User;
+import itmo.spring.meeting.back.model.managers.AttemptDataManager;
+import itmo.spring.meeting.back.model.managers.UserDataManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,35 +14,48 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class MainController {
 
-    private final DataBaseManager dataBaseManager;
+    private final AttemptDataManager attemptDataManager;
+    private final UserDataManager userDataManager;
 
-    public MainController(DataBaseManager dataBaseManager) {
-        this.dataBaseManager = dataBaseManager;
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    public MainController(AttemptDataManager attemptDataManager, UserDataManager userDataManager) {
+        this.attemptDataManager = attemptDataManager;
+        this.userDataManager = userDataManager;
+    }
+
+    @GetMapping({"main", "", "login", "signUp"})
+    public String getIndexPage(){
+        return "index.html";
     }
 
     @ResponseBody
-    @PostMapping("sentForm")
+    @PostMapping("api-sentForm")
     public String sentForm(@RequestBody String jsonAttempt) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
         Attempt attempt = objectMapper.readValue(jsonAttempt, Attempt.class);
         if(attempt.checkIsValid()){
             attempt.setValues();
-            this.dataBaseManager.save(attempt);
+            this.attemptDataManager.save(attempt);
         }
         else
             attempt = Attempt.ERROR_ATTEMPT;
         return objectMapper.writeValueAsString(attempt);
     }
 
-    @GetMapping
-    public String getIndexPage(){
-        return "index.html";
+    @ResponseBody
+    @GetMapping("api-receiveAttempts")
+    public String receiveAttempts() throws JsonProcessingException {
+        return objectMapper.writeValueAsString(this.attemptDataManager.get());
     }
 
     @ResponseBody
-    @GetMapping("receiveAttempts")
-    public String receiveAttempts() throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(this.dataBaseManager.get());
+    @PostMapping("api-signUp")
+    public void signUp(@RequestBody String jsonUser) throws JsonProcessingException{
+        User user = objectMapper.readValue(jsonUser, User.class);
+        this.userDataManager.save(user);
     }
+
+//
+//    @ResponseBody
+//    @PostMapping("api-signIn")
+//    public String trySignIn(@RequestBody )
 }

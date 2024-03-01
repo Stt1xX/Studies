@@ -19,7 +19,7 @@
                  type="password" placeholder="Password" maxlength="20"/>
           <p id="passwordMessage" class="errorMessage">Field password can't be empty!</p>
         </div>
-        <button @click="click() ? $router.push('/') : {}">Sign In</button>
+        <button @click="click() ? $router.push('main') : {}">Sign In</button>
       </div>
     </div>
   </div>

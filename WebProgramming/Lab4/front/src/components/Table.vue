@@ -55,7 +55,7 @@ defineExpose({
 })
 
 onMounted(async function(){
-  await fetch('http://localhost:8080/receiveAttempts')
+  await fetch('http://localhost:8080/api-receiveAttempts')
       .then(function(res){
         return res.json()
       })

@@ -1,4 +1,4 @@
-package itmo.spring.meeting.back.Model;
+package itmo.spring.meeting.back.model.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

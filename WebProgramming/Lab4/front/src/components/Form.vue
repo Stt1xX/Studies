@@ -137,7 +137,7 @@ function paintRadius(){
 
 //ajax request
 async function sentForm(){
-  await fetch('http://localhost:8080/sentForm', {
+  await fetch('http://localhost:8080/api-sentForm', {
     method: "POST",
     headers: {
       'Accept': 'application/json',
