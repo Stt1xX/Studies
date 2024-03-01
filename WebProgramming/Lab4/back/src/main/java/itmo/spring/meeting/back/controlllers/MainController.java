@@ -6,6 +6,8 @@ import itmo.spring.meeting.back.model.entities.Attempt;
 import itmo.spring.meeting.back.model.entities.User;
 import itmo.spring.meeting.back.model.managers.AttemptDataManager;
 import itmo.spring.meeting.back.model.managers.UserDataManager;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,7 +52,13 @@ public class MainController {
     @ResponseBody
     @PostMapping("api-signUp")
     public void signUp(@RequestBody String jsonUser) throws JsonProcessingException{
+        System.out.println(jsonUser);
         User user = objectMapper.readValue(jsonUser, User.class);
+        System.out.println("Hi");
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
+        System.out.println(user.getPassword());
+        String result = encoder.encode(user.getPassword());
+        System.out.println(result);
         this.userDataManager.save(user);
     }
 

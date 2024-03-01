@@ -60,7 +60,6 @@ function checkPassword(){
     passwordMessage.style.visibility = "hidden"
     return true;
   }
-
 }
 
 function checkSecondPassword(){
@@ -73,8 +72,27 @@ function checkSecondPassword(){
   }
 }
 
+const token = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+
+async function sentForm(){
+  console.log(token)
+  await fetch('http://localhost:8080/api-signUp', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'X-XSRF-TOKEN': token
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    })
+  })
+}
+
 function click(){
-  return checkUsername() & checkPassword() & checkSecondPassword()
+  let ret = checkUsername() & checkPassword() & checkSecondPassword()
+  if (ret) sentForm()
+  return ret;
 }
 
 </script>

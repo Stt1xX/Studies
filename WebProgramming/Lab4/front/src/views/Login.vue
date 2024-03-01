@@ -6,7 +6,7 @@
         <h1>Authorization</h1>
         <span>
           New?
-          <router-link to="/signUp">Sign Un</router-link>
+          <router-link to="/signUp">Sign Up</router-link>
         </span>
         <p id="invalidAuthorizationMessage" class="errorMessage">Invalid username or password! Try again!</p>
         <div class="wrapperInput">
