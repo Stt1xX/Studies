@@ -41,6 +41,14 @@ provide('setRadius', (newRadius) => {
   graph.value.setRadius(newRadius)
 })
 
+provide('drawPoint', (x, y, isHit) => {
+  graph.value.drawPoint(x, y, isHit)
+})
+
+provide('drawPoints', (array) => {
+  graph.value.drawPoints(array)
+})
+
 </script>
 
 <style scoped>

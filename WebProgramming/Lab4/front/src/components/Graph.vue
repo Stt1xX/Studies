@@ -11,15 +11,39 @@
 import {inject, onMounted} from "vue";
 
   let radius;
+  let tempArr;
 
   function setRadius(newRadius){
     radius = newRadius
     fill_graph()
+    drawPoints(tempArr)
   }
 
+  function drawPoint(x, y, isHit){
+    offset_the_center();
+    ctx.beginPath();
+    // ctx.fillStyle = axis_color;
+    if (isHit === 'Yes'){
+      ctx.fillStyle = hit_point_color;
+    } else{
+      ctx.fillStyle = miss_point_color;
+    }
+    ctx.arc(x * cell_size, -y * cell_size, 3, 0, 2 * Math.PI);
+    ctx.fill();
+    anti_offset_the_center();
+  }
+
+  function drawPoints(arrOfPoints){
+    tempArr = arrOfPoints;
+    arrOfPoints.forEach((point) => drawPoint(point.x, point.y, point.isHit))
+  }
+
+
   defineExpose({
-    setRadius
-  })
+      setRadius,
+      drawPoint,
+      drawPoints
+    })
 
   const setCoords = inject('setCoords')
 
@@ -219,7 +243,6 @@ import {inject, onMounted} from "vue";
     draw_figures();
     anti_offset_the_center();
   }
-
 </script>
 
 <style scoped>

@@ -151,6 +151,7 @@ async function sentForm(){
   }).then(point => point.json())
       .then((point) => {
         addNewAttempt(point)
+        drawPoint(point.x, point.y, point.isHit)
       })
 }
 
@@ -172,6 +173,7 @@ defineExpose({
 
 const setRadius = inject('setRadius')
 const addNewAttempt = inject('addNewAttempt')
+const drawPoint = inject('drawPoint')
 
 </script>
 

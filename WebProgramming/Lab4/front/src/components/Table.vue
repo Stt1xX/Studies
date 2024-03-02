@@ -43,7 +43,7 @@
 
 <script setup>
 
-import {onMounted, ref} from "vue";
+import {inject, onMounted, ref} from "vue";
 
 let attemptsArray = ref([]);
 function addNewAttempt(newAttempt){
@@ -53,6 +53,8 @@ function addNewAttempt(newAttempt){
 defineExpose({
   addNewAttempt
 })
+
+const drawPoints = inject('drawPoints')
 
 onMounted(async function(){
   await fetch('http://localhost:8080/api-receiveAttempts',{
@@ -65,6 +67,7 @@ onMounted(async function(){
       return res.json()
     })
     .then(function(res){
+      drawPoints(res)
       attemptsArray.value = res
     })
 })
