@@ -25,6 +25,7 @@ public class UserDataManager {
 
     public boolean authorization(String username, String password) throws NoSuchAlgorithmException {
         User user = this.userRepository.getUserByUsername(username);
+        if (user == null) return false;
         byte[] hash = HashManager.getHashFromPassword(password, user.getSalt());
         return this.userRepository.countUserByUsernameAndHash(user.getUsername(), hash) == 1;
     }
