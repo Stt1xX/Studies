@@ -2,6 +2,7 @@ package itmo.spring.meeting.back.controlllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import itmo.spring.meeting.back.model.HashManager;
 import itmo.spring.meeting.back.model.entities.Attempt;
 import itmo.spring.meeting.back.model.entities.User;
 import itmo.spring.meeting.back.model.managers.AttemptDataManager;
@@ -10,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 @CrossOrigin
@@ -32,7 +35,7 @@ public class MainController {
 
     @ResponseBody
     @PostMapping("api-sentForm")
-    public String sentForm(@RequestHeader("Cookie") String cookies, @RequestBody String jsonAttempt) throws JsonProcessingException {
+    public String sentForm(@RequestHeader("Cookie") String cookies, @RequestBody String jsonAttempt) throws JsonProcessingException, NoSuchAlgorithmException {
         Attempt attempt = objectMapper.readValue(jsonAttempt, Attempt.class);
         if(attempt.checkIsValid()){
             attempt.setValues();
@@ -47,16 +50,20 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("api-receiveAttempts")
-    public String receiveAttempts(@RequestHeader("Cookie") String cookies) throws JsonProcessingException {
+    public String receiveAttempts(@RequestHeader("Cookie") String cookies) throws JsonProcessingException, NoSuchAlgorithmException {
         return objectMapper.writeValueAsString(this.attemptDataManager.getByCurrentUser
                 (this.userDataManager.getUserByUsernameAndPassword(parseUsername(cookies), parsePassword(cookies))));
     }
 
     @ResponseBody
     @PostMapping("api-signUp")
-    public void signUp(@RequestBody String jsonUser) throws JsonProcessingException{
+    public void signUp(@RequestBody String jsonUser) throws JsonProcessingException, NoSuchAlgorithmException {
         User user = objectMapper.readValue(jsonUser, User.class);
+        byte[] salt = HashManager.getSalt();
+        byte[] hash = HashManager.getHashFromPassword(user.getPassword(), salt);
         if (this.userDataManager.checkSameUser(user)){
+            user.setSalt(salt);
+            user.setHash(hash);
             this.userDataManager.save(user);
         } else{
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Same user");
@@ -65,11 +72,11 @@ public class MainController {
 
     @ResponseBody
     @PostMapping("api-signIn")
-    public void trySignIn(@RequestHeader("Cookie") String cookies) {
+    public void trySignIn(@RequestHeader("Cookie") String cookies) throws NoSuchAlgorithmException {
         // The qualitative search to ensure that we get the values we need and not, for example, part of the password
         String login = parseUsername(cookies), password = parsePassword(cookies);
         if(login != null && password != null){
-            if (!userDataManager.authorization(new User(login, password))){
+            if (!userDataManager.authorization(login, password)){
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No auth");
             }
         } else{
