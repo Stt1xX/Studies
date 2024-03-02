@@ -55,13 +55,18 @@ defineExpose({
 })
 
 onMounted(async function(){
-  await fetch('http://localhost:8080/api-receiveAttempts')
-      .then(function(res){
-        return res.json()
-      })
-      .then(function(res){
-        attemptsArray.value = res
-      })
+  await fetch('http://localhost:8080/api-receiveAttempts',{
+    headers: {
+      'Content-Type': 'application/json',
+      credentials: 'include'
+    }
+  })
+    .then(function(res){
+      return res.json()
+    })
+    .then(function(res){
+      attemptsArray.value = res
+    })
 })
 
 </script>

@@ -28,4 +28,8 @@ public class UserDataManager {
         return this.userRepository.countUserByUsernameIs(user.getUsername()) == 0;
     }
 
+    public User getUserByUsernameAndPassword(String username, String password){
+        return this.userRepository.getUserByUsernameAndPassword(username, password);
+    }
+
 }

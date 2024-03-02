@@ -1,6 +1,7 @@
 package itmo.spring.meeting.back.model.managers;
 
 import itmo.spring.meeting.back.model.entities.Attempt;
+import itmo.spring.meeting.back.model.entities.User;
 import itmo.spring.meeting.back.model.interfacesJPA.AttemptRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
@@ -21,8 +22,8 @@ public class AttemptDataManager {
         this.attemptRepository.save(attempt);
     }
 
-    public List<Attempt> get(){
-        List<Attempt> list = (List<Attempt>) this.attemptRepository.findAll();
+    public List<Attempt> getByCurrentUser(User user){
+        List<Attempt> list = this.attemptRepository.findAllByOwner(user);
         Collections.reverse(list);
         return list;
     }

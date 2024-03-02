@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {
     int countUserByUsernameIsAndPasswordIs(String username, String password);
-
+    User getUserByUsernameAndPassword(String username, String password);
     int countUserByUsernameIs(String username);
 }

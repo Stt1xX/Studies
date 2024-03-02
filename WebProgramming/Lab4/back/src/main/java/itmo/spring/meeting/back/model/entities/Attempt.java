@@ -1,9 +1,8 @@
 package itmo.spring.meeting.back.model.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -22,18 +21,24 @@ public class Attempt {
     private String time;
     @Column(nullable = false)
     private String isHit;
-    public static Attempt ERROR_ATTEMPT = new Attempt("null", "null", "null", "null", "null");
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "owner_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User owner;
+
+    public static Attempt ERROR_ATTEMPT = new Attempt("null", "null", "null", "null", "null", null);
 
     @Id
     @GeneratedValue
     private Long id;
 
-    public Attempt(String x, String y, String radius, String time, String isHit) {
+    public Attempt(String x, String y, String radius, String time, String isHit, User owner) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.time = time;
         this.isHit = isHit;
+        this.owner = owner;
     }
 
     public Attempt(String x, String y, String radius) {
@@ -120,9 +125,11 @@ public class Attempt {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return String.format("*** New attempt ***\nId: %d\nX: %s\nY: %s\nRadius: %s\nIs Hit: %s\nTime: %s",
-                this.id, this.x, this.y, this.radius, this.isHit, this.time);
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }

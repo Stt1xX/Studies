@@ -32,10 +32,12 @@ public class MainController {
 
     @ResponseBody
     @PostMapping("api-sentForm")
-    public String sentForm(@RequestBody String jsonAttempt) throws JsonProcessingException {
+    public String sentForm(@RequestHeader("Cookie") String cookies, @RequestBody String jsonAttempt) throws JsonProcessingException {
         Attempt attempt = objectMapper.readValue(jsonAttempt, Attempt.class);
         if(attempt.checkIsValid()){
             attempt.setValues();
+            attempt.setOwner(
+                    this.userDataManager.getUserByUsernameAndPassword(parseUsername(cookies), parsePassword(cookies)));
             this.attemptDataManager.save(attempt);
         }
         else
@@ -45,8 +47,9 @@ public class MainController {
 
     @ResponseBody
     @GetMapping("api-receiveAttempts")
-    public String receiveAttempts() throws JsonProcessingException {
-        return objectMapper.writeValueAsString(this.attemptDataManager.get());
+    public String receiveAttempts(@RequestHeader("Cookie") String cookies) throws JsonProcessingException {
+        return objectMapper.writeValueAsString(this.attemptDataManager.getByCurrentUser
+                (this.userDataManager.getUserByUsernameAndPassword(parseUsername(cookies), parsePassword(cookies))));
     }
 
     @ResponseBody
@@ -60,21 +63,11 @@ public class MainController {
         }
     }
 
-
     @ResponseBody
     @PostMapping("api-signIn")
     public void trySignIn(@RequestHeader("Cookie") String cookies) {
         // The qualitative search to ensure that we get the values we need and not, for example, part of the password
-        String[] cookiesList = cookies.split("; ");
-        String login = null, password = null;
-        for (String item : cookiesList){
-            if (item.matches("^Login=(.*)")){
-                login = item.replace("Login=", "");
-            }
-            if (item.matches("^Password=(.*)")){
-                password = item.replace("Password=", "");
-            }
-        }
+        String login = parseUsername(cookies), password = parsePassword(cookies);
         if(login != null && password != null){
             if (!userDataManager.authorization(new User(login, password))){
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No auth");
@@ -82,6 +75,33 @@ public class MainController {
         } else{
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No auth");
         }
+    }
 
+    public String parseUsername(String cookies){
+        String[] cookiesList = cookies.split("; ");
+        String login = null;
+        for (String item : cookiesList) {
+            if (item.matches("^Login=(.*)")) {
+                login = item.replace("Login=", "");
+            }
+        }
+        if (login == null){
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized entry");
+        }
+        return login;
+    }
+
+    public String parsePassword(String cookies){
+        String[] cookiesList = cookies.split("; ");
+        String password = null;
+        for (String item : cookiesList) {
+            if (item.matches("^Password=(.*)")){
+                password = item.replace("Password=", "");
+            }
+        }
+        if (password == null){
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized entry");
+        }
+        return password;
     }
 }
