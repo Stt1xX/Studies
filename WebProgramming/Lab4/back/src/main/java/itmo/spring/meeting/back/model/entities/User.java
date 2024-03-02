@@ -1,5 +1,6 @@
 package itmo.spring.meeting.back.model.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,7 +11,7 @@ import org.springframework.web.context.annotation.RequestScope;
 @Component
 @RequestScope
 public class User {
-
+    @Column(unique=true)
     private String username;
     private String password;
 

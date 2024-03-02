@@ -142,8 +142,6 @@ async function sentForm(){
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      // 'X-XSRF-TOKEN': document.cookie.split("; ")
-      //     .find((row) => row.startsWith("XSRF-TOKEN")).replace("XSRF-TOKEN=", '')
     },
     body: JSON.stringify({
       x: x.value,

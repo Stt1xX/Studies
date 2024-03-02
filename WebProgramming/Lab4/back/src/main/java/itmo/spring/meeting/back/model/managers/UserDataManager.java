@@ -20,4 +20,12 @@ public class UserDataManager {
         this.userRepository.save(user);
     }
 
+    public boolean authorization(User user){
+        return this.userRepository.countUserByUsernameIsAndPasswordIs(user.getUsername(), user.getPassword()) == 1;
+    }
+
+    public boolean checkSameUser(User user){
+        return this.userRepository.countUserByUsernameIs(user.getUsername()) == 0;
+    }
+
 }

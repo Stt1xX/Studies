@@ -6,10 +6,10 @@ import itmo.spring.meeting.back.model.entities.Attempt;
 import itmo.spring.meeting.back.model.entities.User;
 import itmo.spring.meeting.back.model.managers.AttemptDataManager;
 import itmo.spring.meeting.back.model.managers.UserDataManager;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @Controller
 @CrossOrigin
@@ -52,18 +52,36 @@ public class MainController {
     @ResponseBody
     @PostMapping("api-signUp")
     public void signUp(@RequestBody String jsonUser) throws JsonProcessingException{
-        System.out.println(jsonUser);
         User user = objectMapper.readValue(jsonUser, User.class);
-        System.out.println("Hi");
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
-        System.out.println(user.getPassword());
-        String result = encoder.encode(user.getPassword());
-        System.out.println(result);
-        this.userDataManager.save(user);
+        if (this.userDataManager.checkSameUser(user)){
+            this.userDataManager.save(user);
+        } else{
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Same user");
+        }
     }
 
-//
-//    @ResponseBody
-//    @PostMapping("api-signIn")
-//    public String trySignIn(@RequestBody )
+
+    @ResponseBody
+    @PostMapping("api-signIn")
+    public void trySignIn(@RequestHeader("Cookie") String cookies) {
+        // The qualitative search to ensure that we get the values we need and not, for example, part of the password
+        String[] cookiesList = cookies.split("; ");
+        String login = null, password = null;
+        for (String item : cookiesList){
+            if (item.matches("^Login=(.*)")){
+                login = item.replace("Login=", "");
+            }
+            if (item.matches("^Password=(.*)")){
+                password = item.replace("Password=", "");
+            }
+        }
+        if(login != null && password != null){
+            if (!userDataManager.authorization(new User(login, password))){
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No auth");
+            }
+        } else{
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No auth");
+        }
+
+    }
 }

@@ -23,7 +23,7 @@
                   type="password" placeholder="Confirm password" maxlength="20"/>
           <p id="ConfirmPasswordMessage" class="errorMessage">Passwords don't match!</p>
         </div>
-        <button @click="click() ? $router.push('main') : {}">Sign Up</button>
+        <button @click="click($router)">Sign Up</button>
       </div>
     </div>
   </div>
@@ -44,6 +44,7 @@ onMounted(() =>{
 })
 function checkUsername(){
   if (username === '' || username === undefined){
+    usernameMessage.innerHTML = "Field username can't be empty!";
     usernameMessage.style.visibility = "visible"
     return false;
   } else{
@@ -72,23 +73,40 @@ function checkSecondPassword(){
   }
 }
 
-async function sentForm(){
-  await fetch('http://localhost:8080/api-signUp', {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username: username,
-      password: password,
+function click(router){
+  if (checkUsername() & checkPassword() & checkSecondPassword()) {
+    fetch('http://localhost:8080/api-signUp', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        credentials: 'include'
+
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    }).then(res => {
+      if (res.ok) {
+        setCookie("Login", username, 2);
+        setCookie("Password", password, 2);
+        router.push('/main')
+      } else {
+        usernameMessage.innerHTML = "This user with same name has already been registered!";
+        usernameMessage.style.visibility = "visible"
+      }
     })
-  })
+  }
 }
 
-function click(){
-  let ret = checkUsername() & checkPassword() & checkSecondPassword()
-  if (ret) sentForm()
-  return ret;
+function setCookie(name,value,days) {
+    let expires = "";
+    if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
 </script>

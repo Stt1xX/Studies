@@ -19,7 +19,7 @@
                  type="password" placeholder="Password" maxlength="20"/>
           <p id="passwordMessage" class="errorMessage">Field password can't be empty!</p>
         </div>
-        <button @click="click() ? $router.push('main') : {}">Sign In</button>
+        <button @click="click($router)">Sign In</button>
       </div>
     </div>
   </div>
@@ -31,13 +31,15 @@ import {onMounted} from "vue";
 
 let username, password;
 
-let usernameMessage, passwordMessage;
+let usernameMessage, passwordMessage, invalidAuthorizationMessage;
 
 onMounted(() =>{
   usernameMessage = document.getElementById("usernameMessage")
   passwordMessage = document.getElementById("passwordMessage")
+  invalidAuthorizationMessage = document.getElementById("invalidAuthorizationMessage")
 })
 function checkUsername(){
+  invalidAuthorizationMessage.style.visibility = "hidden"
   if (username === '' || username === undefined) {
     usernameMessage.style.visibility = "visible"
     return false;
@@ -48,6 +50,7 @@ function checkUsername(){
 }
 
 function checkPassword(){
+  invalidAuthorizationMessage.style.visibility = "hidden"
   if (password === '' || password === undefined) {
     passwordMessage.style.visibility = "visible"
     return false;
@@ -55,11 +58,41 @@ function checkPassword(){
     passwordMessage.style.visibility = "hidden"
     return true;
   }
+}
+
+function click(router){
+    if (checkUsername() & checkPassword()) {
+      setCookie("Login", username, 2);
+      setCookie("Password", password, 2);
+      fetch('http://localhost:8080/api-signIn', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          credentials: 'include'
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        })
+      }).then(res => {
+        if (res.ok) {
+          router.push('/main')
+        } else {
+          invalidAuthorizationMessage.style.visibility = "visible"
+        }
+      })
+  }
 
 }
 
-function click(){
-  return checkUsername() & checkPassword();
+function setCookie(name,value,days) {
+  let expires = "";
+  if (days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
 </script>
