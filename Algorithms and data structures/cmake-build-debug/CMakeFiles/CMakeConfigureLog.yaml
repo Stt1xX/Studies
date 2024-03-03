@@ -1,0 +1,189 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files/LLVM/bin/clang-cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      The C compiler identification is Clang, found in:
+        C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:1155 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        Note: including file: ./foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/LLVM/bin/clang-cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      The CXX compiler identification is Clang, found in:
+        C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/3.27.8/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:1155 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        Note: including file: ./foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-s43ods"
+      binary: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-s43ods"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-s43ods'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_b9e15
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_b9e15.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_b9e15.dir\\ -c -- "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b9e15.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_b9e15.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_b9e15.exe /implib:cmTC_b9e15.lib /pdb:cmTC_b9e15.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fdo4cf"
+      binary: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fdo4cf"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fdo4cf'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_4bd58
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_4bd58.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_4bd58.dir\\ -c -- "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_4bd58.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_4bd58.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_4bd58.exe /implib:cmTC_4bd58.lib /pdb:cmTC_4bd58.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake:34 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake:83 (_record_compiler_features)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake:121 (_record_compiler_features_cxx)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake:70 (cmake_record_cxx_compile_features)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:70 (CMAKE_DETERMINE_COMPILE_FEATURES)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compile features"
+    directories:
+      source: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v2k7ue"
+      binary: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v2k7ue"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_FEATURE_TEST"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-v2k7ue'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_3c1b2
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi   -std:c++14 /showIncludes /FoCMakeFiles\\cmTC_3c1b2.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_3c1b2.dir\\ -c -- "C:\\Users\\ramti\\OneDrive\\╨рсюўшщ ёЄюы\\Studies\\Algorithms and data structures\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-v2k7ue\\feature_tests.cxx"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_3c1b2.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_3c1b2.dir\\feature_tests.cxx.obj  /out:cmTC_3c1b2.exe /implib:cmTC_3c1b2.lib /pdb:cmTC_3c1b2.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake:34 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake:83 (_record_compiler_features)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake:129 (_record_compiler_features_cxx)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake:70 (cmake_record_cxx_compile_features)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.4/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:70 (CMAKE_DETERMINE_COMPILE_FEATURES)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compile features"
+    directories:
+      source: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ejonjy"
+      binary: "C:/Users/ramti/OneDrive/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ejonjy"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_FEATURE_TEST"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ejonjy'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.4/bin/ninja/win/x64/ninja.exe" -v cmTC_48a22
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_48a22.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_48a22.dir\\ -c -- "C:\\Users\\ramti\\OneDrive\\╨рсюўшщ ёЄюы\\Studies\\Algorithms and data structures\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-ejonjy\\feature_tests.cxx"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.4\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_48a22.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100190~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_48a22.dir\\feature_tests.cxx.obj  /out:cmTC_48a22.exe /implib:cmTC_48a22.lib /pdb:cmTC_48a22.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+...
