@@ -1,3 +1,0 @@
-C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/Algorithms_and_data_structures.dir
-C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ramti/OneDrive/Рабочий стол/Studies/Algorithms and data structures/cmake-build-debug/CMakeFiles/rebuild_cache.dir
