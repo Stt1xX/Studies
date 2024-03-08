@@ -1,3 +1,0 @@
-/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/lsan/CMakeFiles/memalloc.dir
-/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/lsan/CMakeFiles/edit_cache.dir
-/home/stt1xx/CLionProjects/assignment-4-memory-allocator/src/out/build/lsan/CMakeFiles/rebuild_cache.dir
