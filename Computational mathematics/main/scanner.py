@@ -12,7 +12,7 @@ def define_console_or_file():
         print(f"{bcolors.FAIL}Введите либо (a), либо (b) другие буквы я не воспринимаю!{bcolors.ENDC}")
 
 class Scanner:
-    def initialize_task(entity):
+    def initialize_task(self, entity):
         while True:
             if define_console_or_file() == data_sources.FILE:
                 if parse_file(entity) != read_file_return_codes.OK:

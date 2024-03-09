@@ -1,3 +1,3 @@
 class Solver:
-    def simple_iterations(entity):
+    def simple_iterations(self, entity):
         pass
