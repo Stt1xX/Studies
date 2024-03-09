@@ -17,3 +17,8 @@ class read_file_return_codes:
     OK = 0
     INVALID_PATH = 1
     INVALID_FILE = 2
+
+class read_equation_return_codes:
+    OK = 0
+    INVALID_NUMBER_OF_VARIABLES = 1
+    INVALID_COEFFICIENTS = 2
