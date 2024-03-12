@@ -1,10 +1,23 @@
 from scanner import FileManager
+from solver import Solver
+from graph_builder import GraphBuilder
+from utils import *
+import sys
 
-# Файл должен содержать на первой строке количество элементов n
-# На второй строке должна находиться выборка из n элементов. Числа в выборке отделены друг от друга пробелами.
+# Файл содрежит выборкy из n элементов. Числа в выборке отделены друг от друга пробелами.
 # Для отображения вещественных чисел использовать либо точку, либо запятую
 
 
 my_manager = FileManager("test.txt")
 
-my_manager.read()
+task = my_manager.read()
+if task == codes.ERROR_CODE:
+    sys.exit()
+
+solver = Solver(task)
+
+graph_builder = GraphBuilder()
+
+solver.sovle()
+
+graph_builder.draw()
