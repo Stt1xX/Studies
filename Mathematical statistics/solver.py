@@ -66,7 +66,7 @@ class Solver:
     def find_interval_statistical_series(self): # Интервальный статистический ряд  
         h = (self.find_max() - self.find_min()) / (1 + log2(len(self.numbers))) # Найндем длину промежутка по формуле Стрерджеса 
         begin = self.find_min() - h / 2
-        numbers = ceil((self.find_max() - self.find_min()) / h)
+        numbers = ceil((self.find_max() - begin) / h)
         current_start = begin
         current_end = current_start + h
         for i in range(numbers):

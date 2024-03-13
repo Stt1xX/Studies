@@ -20,3 +20,5 @@ solver.sovle()
 graph_builder = GraphBuilder(solver.get_empirical_series(), solver.get_statistical_series())
 graph_builder.drow_empirical_series()
 graph_builder.drow_histogram()
+
+print(f"{bcolors.OKGREEN}Программа завершена успешно!{bcolors.ENDC}")
