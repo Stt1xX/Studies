@@ -15,9 +15,8 @@ if task == codes.ERROR_CODE:
     sys.exit()
 
 solver = Solver(task)
-
-graph_builder = GraphBuilder()
-
 solver.sovle()
 
-graph_builder.draw()
+graph_builder = GraphBuilder(solver.get_empirical_series(), solver.get_statistical_series())
+graph_builder.drow_empirical_series()
+graph_builder.drow_histogram()

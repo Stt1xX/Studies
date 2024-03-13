@@ -4,7 +4,17 @@ class Solver:
 
     numbers: list[float] = None
 
-    dict_numbers: dict[float] = {}
+    dict_numbers: dict[str, float] = {}
+
+    __empirical_series = {}
+
+    __statistical_series = {}
+
+    def get_statistical_series(self):
+        return self.__statistical_series
+
+    def get_empirical_series(self):
+        return self.__empirical_series
 
     def __init__(self, numbers: list[float]):
         self.numbers = sorted(numbers)
@@ -43,10 +53,15 @@ class Solver:
         current_probability : float = 0
         previous =  float("-inf")
         for i in self.dict_numbers:
+            if previous == float("-inf"):
+                self.__empirical_series[(i - 3, i)] = current_probability
+            else:
+                self.__empirical_series[(previous, i)] = current_probability
             print(f"{previous} < x <= {i}: {round(current_probability, 2)}")
             current_probability += self.dict_numbers[i] / len(self.numbers)
             previous = i
         print(f"{previous} < x <= {float("inf")}: {round(current_probability, 2)}")
+        self.__empirical_series[(previous, previous + 3)] = current_probability
 
     def find_interval_statistical_series(self): # Интервальный статистический ряд  
         h = (self.find_max() - self.find_min()) / (1 + log2(len(self.numbers))) # Найндем длину промежутка по формуле Стрерджеса 
@@ -60,10 +75,9 @@ class Solver:
                 if current_start <= item < current_end:
                     frequency += self.dict_numbers[item]
             print(f"[{round(current_end - h, 2)}  {round(current_end, 2)}) : {frequency / len(self.numbers)}")
+            self.__statistical_series[(current_end - h, current_end)] = frequency / len(self.numbers)
             current_start = current_end
             current_end += h
-
-
 
     def get_plug(self):
         return "------------------------------------------------------"
