@@ -16,7 +16,7 @@ class FileManager:
         print(f"{bcolors.OKGREEN}Файл найден!{bcolors.ENDC}")
         try:
             file = open(self.file_path, 'r')
-            numbers = list(map(float, file.read().replace(',', '.').split())) 
+            numbers = list(map(float, file.read().replace(',', '.').replace('\n', ' ').split())) 
         except ValueError:
             print(f"{bcolors.FAIL}Файл поврежден!{bcolors.ENDC}")
         return numbers
