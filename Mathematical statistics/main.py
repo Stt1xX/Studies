@@ -17,8 +17,7 @@ if task == codes.ERROR_CODE:
 solver = Solver(task)
 solver.sovle()
 
-graph_builder = GraphBuilder(solver.get_empirical_series(), solver.get_statistical_series())
-graph_builder.drow_empirical_series()
-graph_builder.drow_histogram()
+graph_builder = GraphBuilder(solver.get_empirical_series(), solver.get_statistical_series(), len(solver.numbers))
+graph_builder.drow()
 
 print(f"{bcolors.OKGREEN}Программа завершена успешно!{bcolors.ENDC}")

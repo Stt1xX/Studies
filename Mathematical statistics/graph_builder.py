@@ -3,10 +3,12 @@ import matplotlib.pyplot as plt
 class GraphBuilder:
     empirical_series = {}
     statistical_series = {}
+    length = 0
     
-    def __init__(self, empirical_series, statistical_series) -> None:
+    def __init__(self, empirical_series, statistical_series, length) -> None:
         self.empirical_series = empirical_series
         self.statistical_series = statistical_series
+        self.length = length
 
     def drow_empirical_series(self):
         x_coord = []
@@ -31,12 +33,30 @@ class GraphBuilder:
         for item in self.statistical_series:
             centers.append((item[1] + item[0]) / 2)
             h = item[1] - item[0]
-            values.append(self.statistical_series[item] / (item[1] - item[0]) / len(self.empirical_series))
-        
+            values.append(self.statistical_series[item] / (item[1] - item[0]) * self.length) # для абсолютных частот
+            # values.append(self.statistical_series[item] / (item[1] - item[0])) # для относительных частот
         plt.bar(centers, values, edgecolor='k', width=h, fc=(0, 0, 1, 0.5))
+        plt.grid(False)
+        plt.xlabel('x')
+        plt.ylabel('p/h')
+        plt.title('Гистограмма относительных частот')
+        plt.show()
+
+    def drow_frequency_range(self):
+        centers = list()
+        values = list()
+        for item in self.statistical_series:
+            centers.append((item[1] + item[0]) / 2)
+            values.append(self.statistical_series[item] * self.length / (item[1] - item[0]))   # для абсолютных частот
+            # values.append(self.statistical_series[item] / (item[1] - item[0])) # для относительных частот
         plt.plot(centers, values, color='red', alpha=0.75, marker='o', markersize=7)
         plt.grid(False)
         plt.xlabel('x')
         plt.ylabel('p/h')
-        plt.title('Гистограмма и полигон частот')
+        plt.title('Полигон относительных частот')
         plt.show()
+
+    def drow(self):
+        self.drow_empirical_series()
+        self.drow_histogram()
+        self.drow_frequency_range()
