@@ -22,3 +22,7 @@ class read_equation_return_codes:
     OK = 0
     INVALID_NUMBER_OF_VARIABLES = 1
     INVALID_COEFFICIENTS = 2
+
+class simple_iterations_codes:
+    OK = 0
+    INVALID_EQUATION = 1

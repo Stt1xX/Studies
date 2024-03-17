@@ -1,9 +1,9 @@
 class Equations_system:
     
-    __d_matrix = None
-    __main_matrix = None
-    __size = None
-    __accuracy = None
+    __d_matrix = None  # cвободные коэффициенты
+    __main_matrix = None # коэффициенты при переменных
+    __size = None # количество уравнений
+    __accuracy = None # необходимая точность
 
 
     def __init__(self):
