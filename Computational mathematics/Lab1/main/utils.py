@@ -12,6 +12,7 @@ class bcolors:
 class data_sources:
     CONSOLE = 0
     FILE = 1
+    RAND = 2
     
 class read_file_return_codes:
     OK = 0

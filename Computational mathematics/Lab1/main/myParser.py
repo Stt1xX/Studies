@@ -14,9 +14,29 @@ def validate_size(size):
     return -1
 
 def validate_accuracy(accuracy):
-    if is_float(accuracy.replace(',', '.')) == True and float(accuracy.replace(',', '.')) > 0:
+    if is_float(accuracy.replace(',', '.')) == True and 1 > float(accuracy.replace(',', '.')) > 0:
         return float(accuracy.replace(',', '.'))
     return -1
+
+def parse_size(entity):
+    while True:
+        print("Введите размер матрицы 0 <= n <= 20:")
+        size = validate_size(input())
+        if size == -1:
+            print(f"{bcolors.FAIL}Некорректный размер матрицы, попробуйте еще раз{bcolors.ENDC}")
+            continue # For trying again
+        entity.set_size(size)
+        return size
+    
+def parse_accuracy(entity):
+    while True:
+        print("Введите точность для алгоритма 1 < e < 0:")
+        accuracy = validate_accuracy(input())
+        if accuracy == -1:
+            print(f"{bcolors.FAIL}Некорректная точность, попробуйте еще раз{bcolors.ENDC}")
+            continue # For trying again
+        entity.set_accuracy(accuracy)
+        return accuracy
 
 def parse_equation(equation, main_martix, d_matrix, size):
     current_string = equation.replace(',', '.').split()
@@ -31,17 +51,9 @@ def parse_equation(equation, main_martix, d_matrix, size):
     return read_equation_return_codes.OK
     
 def parse_console(entity):
-    while True:
-        print("Введите размер матрицы 0 <= n <= 20:")
-        size = validate_size(input())
-        if size == -1:
-            print(f"{bcolors.FAIL}Некорректный размер матрицы, попробуйте еще раз{bcolors.ENDC}")
-            continue # For trying again
-        entity.set_size(size)
-        break
+    parse_size(entity)
     main_matrix = list()
     d_matrix = list()
-    accuracy = 0
     iterator = 1
     print(f"{bcolors.WARNING}Вводите коэффициенты, включая свободный коэффициент справа от знака '=', не меняя его знак{bcolors.ENDC}")
     while iterator < entity.get_size() + 1:
@@ -55,14 +67,7 @@ def parse_console(entity):
             print(f"{bcolors.FAIL}Строка содержит неверное количество коэффициентов! Введите коэффициенты еще раз!{bcolors.ENDC}")
             iterator -= 1
         iterator += 1
-    while True:
-        print("Введите точность для алгоритма 0 < e:")
-        accuracy = validate_accuracy(input())
-        if accuracy == -1:
-            print(f"{bcolors.FAIL}Некорректная точность, попробуйте еще раз{bcolors.ENDC}")
-            continue # For trying again
-        entity.set_accuracy(accuracy)
-        break
+    parse_accuracy(entity)
     entity.set_main_matrix(main_matrix)
     entity.set_d_matrix(d_matrix)
 

@@ -59,7 +59,7 @@ class Solver:
     
     def doing_iterations(self, entity):
         current_vector = entity.get_d_matrix()
-        counter = 0
+        counter = 1
         while True:
             counter += 1
             new_vector = []
