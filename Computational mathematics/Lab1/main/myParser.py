@@ -20,7 +20,7 @@ def validate_accuracy(accuracy):
 
 def parse_size(entity):
     while True:
-        print("Введите размер матрицы 0 <= n <= 20:")
+        print("Введите размер матрицы 0 < n <= 20:")
         size = validate_size(input())
         if size == -1:
             print(f"{bcolors.FAIL}Некорректный размер матрицы, попробуйте еще раз{bcolors.ENDC}")
@@ -30,7 +30,7 @@ def parse_size(entity):
     
 def parse_accuracy(entity):
     while True:
-        print("Введите точность для алгоритма 1 < e < 0:")
+        print("Введите точность для алгоритма 0 < e < 1:")
         accuracy = validate_accuracy(input())
         if accuracy == -1:
             print(f"{bcolors.FAIL}Некорректная точность, попробуйте еще раз{bcolors.ENDC}")
@@ -79,10 +79,14 @@ def parse_file(entity):
     accuracy = 0
     main_matrix = list()
     d_matrix = list()
-    if path.isfile(file_path) == False:   
-        print(f"{bcolors.FAIL}Файл не найден!{bcolors.ENDC}")
-        return read_file_return_codes.INVALID_PATH
-    file = open(file_path, 'r')
+    try:
+        if path.isfile(file_path) == False:   
+            print(f"{bcolors.FAIL}Файл не найден!{bcolors.ENDC}")
+            return read_file_return_codes.INVALID_PATH
+        file = open(file_path, 'r')
+    except IOError:
+        print(f"{bcolors.FAIL}У меня не хватает прав доступа для этого файла :({bcolors.ENDC}")
+        return read_file_return_codes.PERMISSON_DENIED
     file_content = file.read().split('\n')
 
     size = validate_size(file_content[0])

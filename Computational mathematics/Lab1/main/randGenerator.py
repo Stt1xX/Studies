@@ -6,16 +6,15 @@ import sys
 
 def generate_task(entity):
     size = parse_size(entity)
-    print("Прочитал размер, размер -", entity.get_size())
     accuracy = parse_accuracy(entity)
-    print("Прочитал точность, точность -", entity.get_accuracy())
+    
     main_matrix = list()
     d_matrix = list()
     for i in range(size):
         current_arr = []
         for j in range(size):
             if i == j:
-                current_arr.append(round(random() * 20 + 10, 2))
+                current_arr.append(round(random() * 10 + 20, 2))
             else:
                 current_arr.append(round(random(), 2))
         main_matrix.append(current_arr)

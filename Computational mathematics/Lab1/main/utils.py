@@ -18,6 +18,7 @@ class read_file_return_codes:
     OK = 0
     INVALID_PATH = 1
     INVALID_FILE = 2
+    PERMISSON_DENIED = 3
 
 class read_equation_return_codes:
     OK = 0
@@ -27,3 +28,4 @@ class read_equation_return_codes:
 class simple_iterations_codes:
     OK = 0
     INVALID_EQUATION = 1
+    TOO_LARGE_COUNT_OF_ITERATIONS = 2

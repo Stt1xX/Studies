@@ -9,8 +9,9 @@ class Solver:
         else:
             print(f"{bcolors.OKGREEN}Достаточные условия для уравнения выполняются! Решаю...{bcolors.ENDC}")
             self.expressing_coefficients(entity)
-            self.doing_iterations(entity)
-            print(f"{bcolors.OKGREEN}Система успешно решена!{bcolors.ENDC}")
+            
+            if self.doing_iterations(entity) == simple_iterations_codes.OK:
+                print(f"{bcolors.OKGREEN}Система успешно решена!{bcolors.ENDC}")
 
     def changing_the_order(self, entity):
         control_flag = False
@@ -27,14 +28,17 @@ class Solver:
             main_map[max_item] = entity_main_matrix[i]
             d_map[max_item] = entity_d_matrix[i]
         if (len(main_map) < len(entity_main_matrix)):
+            print(1)
             return simple_iterations_codes.INVALID_EQUATION
         for i in main_map:
             max_item = max(main_map[i])
             if sum(main_map[i]) - max_item > max_item:
+                print(2)
                 return simple_iterations_codes.INVALID_EQUATION
             elif max_item > sum(main_map[i]) - max_item:
                 control_flag = True
         if control_flag == False:
+            print(3)
             return simple_iterations_codes.INVALID_EQUATION
         entity.set_main_matrix([i[1] for i in sorted(main_map.items())])
         entity.set_d_matrix([i[1] for i in sorted(d_map.items())])
@@ -61,6 +65,9 @@ class Solver:
         current_vector = entity.get_d_matrix()
         counter = 1
         while True:
+            if counter > 1000:
+                print(f'{bcolors.FAIL}Слишком много итераций. Что-то с вашим уравнением не так...{bcolors.ENDC}')
+                return simple_iterations_codes.TOO_LARGE_COUNT_OF_ITERATIONS
             counter += 1
             new_vector = []
             for i in range(len(entity.get_main_matrix())):
@@ -82,5 +89,5 @@ class Solver:
                 print(f'Количество итераций: {bcolors.OKCYAN}{counter}{bcolors.ENDC}')
                 print(f'Вектор погрешностей: {bcolors.OKCYAN}({str(error_vector)[1:-1]}){bcolors.ENDC}')
                 print(f'Решение: {bcolors.OKCYAN}({str(new_vector)[1:-1]}){bcolors.ENDC}')
-                break
+                return simple_iterations_codes.OK
             current_vector = new_vector
