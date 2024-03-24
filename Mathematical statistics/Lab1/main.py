@@ -1,0 +1,1 @@
+print("helllo, fuckin' math statistic")
