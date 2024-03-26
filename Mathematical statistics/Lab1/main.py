@@ -5,7 +5,6 @@ import pandas as pd
 from solver import Solver
 from graph_builder import GraphBuilder
 
-
 def task1():
     print("-------- Задание 1 --------")
 # Настройка программы
@@ -85,5 +84,5 @@ def task2():
     graph_builder.drow_empirical_series(solver.get_heading(), solver.get_empirical_series())
     graph_builder.drow_boxplot(solver.get_heading(), solver.numbers)
 
-# task2()
 task1()
+# task2()
