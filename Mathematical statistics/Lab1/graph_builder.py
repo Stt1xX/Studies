@@ -18,6 +18,27 @@ class GraphBuilder:
         plt.title(heading)
         plt.show()
 
+    def drow_empirical_series(self, heading, empirical_series):
+        x_coord = []
+        y_coord = []
+        for item in empirical_series:
+            x_coord.append(item[0])
+            x_coord.append(item[1])
+            y_coord.append(empirical_series[item])
+            y_coord.append(empirical_series[item])
+            plt.plot(x_coord, y_coord, color='c')
+
+        plt.grid(True)
+        plt.xlabel('x')
+        plt.ylabel('F*(x)')
+        plt.title(heading)
+        plt.show()
+
+    def drow_boxplot(self, heading, arr):
+        plt.boxplot(arr)
+        plt.title(heading)
+        plt.show()
+
     def drow_normail_distribution(self):
         x = np.arange(-5, 5, 0.01)
         plt.plot(x, stats.norm.pdf(x), color="red")
@@ -25,12 +46,4 @@ class GraphBuilder:
     def drow_gamma_distribution(self, shape):
         x = np.arange(0.01, 10, 0.01)
         plt.plot(x, stats.gamma.pdf(x, shape), color="red")
-
-    # def drow(self, empirical_series, normolized_statistical_series, statistical_series, heading, h, normalized_h):
-    #     self.drow_histogram(heading, statistical_series, h)
-    #     # self.drow_histogram(heading, normolized_statistical_series, normalized_h)
-    #     self.drow_normail_distribution()
-    #     # self.drow_gamma_distribution(2)
-    #     self.drow_gamma_distribution(1)
-    #     plt.show()
         

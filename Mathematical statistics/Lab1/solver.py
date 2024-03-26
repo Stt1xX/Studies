@@ -67,6 +67,28 @@ class Solver:
             current_start = current_end
             current_end += h
         return ret_arr
+    
+    def find_empirical_series(self, arr): # Эмпиричейчкий ряд
+        current_probability : float = 0
+        previous =  float("-inf")
+        ret_dict = {}
+        for i in arr:
+            if previous == float("-inf"):
+                ret_dict[(i - (max(arr) - min(arr)) * 0.05, i)] = current_probability
+            else:
+                ret_dict[(previous, i)] = current_probability
+            current_probability += 1 / len(arr)
+            previous = i
+        ret_dict[(previous, previous + (max(arr) - min(arr)) * 0.05)] = current_probability
+        return ret_dict
+    
+    def print_cvantil(self, cvantil):
+        number = cvantil * len(self.numbers)
+        for i in range(len(self.numbers)):
+            if i > number:
+                print(f'Квантиль {cvantil} = {self.numbers[i]}')
+                return
+        print(f'Error in find_cvantil')
 
     def solve(self, numbers, heading):
         self.__heading = heading
@@ -82,7 +104,7 @@ class Solver:
         print(f"------ {heading} ------")
         print("Экстремальные значения:: Минимум:", min(self.numbers), "Максимум:", max(self.numbers))
         print("Размах:", round(max(self.numbers) - min(self.numbers), 3))
-        print("Оценка математического ожидания:", round(mean, 5))
+        print("Среднее выборочное:", round(mean, 5))
         print("Выборочная дисперсия:", round(std, 5))
         print("Медиана (квантиль 0.5):", round(self.find_median(self.numbers), 5))
 
@@ -90,3 +112,4 @@ class Solver:
         self.__normalized_h = self.find_h(normalized_data)
         self.__statistical_series = self.find_interval_statistical_series(self.numbers)
         self.__h = self.find_h(self.numbers)
+        self.__empirical_series = self.find_empirical_series(self.numbers)
