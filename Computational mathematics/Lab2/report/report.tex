@@ -1,0 +1,382 @@
+\documentclass[14pt]{article}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{cmap}
+\usepackage[russian]{babel}
+\usepackage{textcomp}
+\usepackage{indentfirst}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage[unicode, pdftex]{hyperref}
+\usepackage{extsizes}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttoctitlefont}{\LARGE\bfseries}
+% Начало блока кода, который позволяет включить section* в оглавление
+\usepackage{etoolbox}
+\makeatletter
+\newcommand\mysection[1]{%
+	  \addcontentsline{toc}{section}{#1}%
+	  \section*{#1}%
+}
+\makeatother
+
+\makeatletter
+\newcommand\mysubsection[1]{%
+	  \addcontentsline{toc}{subsection}{#1}%
+	  \subsection*{#1}%
+}
+\makeatother
+
+\makeatletter
+\newcommand\mysubsubsection[1]{%
+	  \addcontentsline{toc}{subsubsection}{#1}%
+	  \subsubsection*{#1}%
+}
+\makeatother
+% Конец блока кода
+
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE\bfseries\centering}
+\titleformat*{\subsection}{\Large\it}
+\usepackage{pgfplots}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{document}
+\newgeometry{top=0.1in,bottom=0in,right=0.1in,left=0.1in}
+\begin{spacing}{1}
+\begin{center}
+	\makebox[\linewidth][s]{МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ} \\
+	\vspace{5mm}
+	ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ \\ УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ  \\
+	\guillemotleft Национальный исследовательский университет ИТМО\guillemotright \\
+	\vspace{5mm}
+	ФАКУЛЬТЕТ ПРОГРАММНОЙ ИНЖЕНЕРИИ И КОМПЬЮТЕРНОЙ ТЕХНИКИ
+	\vspace{60mm}
+	
+	{\bf \LARGE ЛАБОРАТОРНАЯ РАБОТА №2} \\
+	{ \Large по дисциплине \\
+	\guillemotleft Вычислительная математика\guillemotright \\
+	Вариант № 13}\\
+\end{center}
+\vspace{50mm}
+
+\begin{flushright}
+	{\it \textbf{Выполнил работу:}}\\
+	Студент группы P3218 \\
+	Рамеев Тимур Ильгизович \\
+	{\it \textbf{Преподаватель:}}\\
+	Бострикова Дарья \\
+	Константиновна \\
+\end{flushright}
+\vspace{18mm}
+\end{spacing}
+\begin{center}
+    Санкт-Петербург  2024
+\end{center}
+
+\newgeometry{a4paper, top=10mm, bottom=20mm, left=20mm, right=10mm}
+
+\newpage
+\begin{center}
+	\tableofcontents 
+\end{center}
+\setcounter{page}{1}
+
+\newpage
+\mysection{Цель}
+	Изучить численные методы решения нелинейных уравнений и их систем, найти корни заданного нелинейного уравнения/системы нелинейных уравнений, выполнить программную реализацию методов.
+\mysection{Задание}
+	\mysubsection{Для вычислительной реализации задачи}
+	\underline{\bf 1 Часть. Решение нелинейного уравнения}
+	\begin{enumerate}[itemsep=-5pt]
+		\item Отделить корни заданного нелинейного уравнения графически (вид уравнения представлен в табл. 6)
+		\item Определить интервалы изоляции корней.
+		\item Уточнить корни нелинейного уравнения (см. табл. 6) с точностью $\epsilon =10^{-2}$
+		\item Используемые методы для уточнения каждого из 3-х корней многочлена представлены в таблице 7.
+		\item Вычисления оформить в виде таблиц (1-5), в зависимости от заданного метода. Для всех значений в таблице удержать 3 знака после запятой.
+		\begin{enumerate}[label=\theenumi.\arabic*, itemsep=0pt]
+			\item Для метода половинного деления заполнить таблицу 1.
+			\item Для метода хорд заполнить таблицу 2.
+			\item Для метода Ньютона заполнить таблицу 3.
+			\item Для метода секущих заполнить таблицу 4.
+			\item Для метода простой итерации заполнить таблицу 5. Проверить условие сходимости метода на выбранном интервале.
+		\end{enumerate}
+		\item Заполненные таблицы отобразить в отчете. 
+	\end{enumerate}
+
+	\underline{\bf 2 Часть. Решение системы нелинейных уравнений}
+	\begin{enumerate}[itemsep=-5pt]
+		\item Отделить корни заданной системы нелинейных уравнений графически (вид системы представлен в табл. 8).
+		\item Используя указанный метод, решить систему нелинейных уравнений с точностью до 0,01.
+		\item Для метода простой итерации проверить условие сходимости метода.
+		\item Подробные вычисления привести в отчете.
+	\end{enumerate}
+
+\newpage
+	\mysubsection{Для программной реализации задачи}
+	\underline{\bf 1 Часть. Решение нелинейного уравнения}
+	\begin{enumerate}[itemsep=-5pt]
+		\item Все численные методы (см. табл. 9) должны быть реализованы в виде отдельных подпрограмм/методов/классов.
+		\item Пользователь выбирает уравнение, корень/корни которого требуется вычислить (3-5 функций, в том числе и трансцендентные), из тех, которые предлагает программа.
+		\item Предусмотреть ввод исходных данных (границы интервала/начальное приближение к корню и погрешность вычисления) из файла или с клавиатуры по выбору конечного пользователя.
+		\item Выполнить верификацию исходных данных. Необходимо анализировать наличие корня на введенном интервале. Если на интервале несколько корней или они отсутствуют – выдавать соответствующее сообщение. Программа должна реагировать на некорректные введенные данные.
+		\item Для методов, требующих начальное приближение к корню (методы Ньютона, секущих, хорд с фиксированным концом, простой итерации), выбор начального приближения (а или b) вычислять в программе.
+		\item Для метода простой итерации проверять достаточное условие сходимости метода на введенном интервале.
+		\item Предусмотреть вывод результатов (найденный корень уравнения, значение функции в корне, число итераций) в файл или на экран по выбору конечного пользователя.
+		\item Организовать вывод графика функции, график должен полностью отображать весь исследуемый интервал (с запасом).
+	\end{enumerate}
+
+	\underline{\bf 2 Часть. Решение системы нелинейных уравнений}
+	\begin{enumerate}[itemsep=-5pt]
+		\item Пользователь выбирает предлагаемые программой системы двух нелинейных уравнений (2-3 системы).
+		\item Организовать вывод графика функций.
+		\item Начальные приближения ввести с клавиатуры.
+		\item Для метода простой итерации проверить достаточное условие сходимости.
+		\item Организовать вывод вектора неизвестных: $x_1, x_2$.
+		\item Организовать вывод количества итераций, за которое было найдено решение.
+		\item Организовать вывод вектора погрешностей: $|x_i^{(k)} - x_i^{(k - 1)}|$
+		\item Проверить правильность решения системы нелинейных уравнений.
+	\end{enumerate}
+
+\newpage
+\mysection{Рабочие формулы используемых методов}
+	\mysubsection{Метод половинного деления}
+	$x_i = \frac{a_i + b_i}{2}$
+	\mysubsection{Метод хорд}
+	$x_i = \frac{a_if(b_i) + b_i f(a_i)}{f(b_i) - f(a_i)}$
+	\mysubsection{Метод Ньютона}
+	$x_i = x_{i-1}-\frac{f(x_{i-1})}{f'(x_{i-1})}$
+	\mysubsection{Метод секущих}
+	$x_i = x_{i}-\frac{x_i - x_{i - 1}}{f(x_i) - f(x_{i-1})}f(x_i)$
+	\mysubsection{Метод простой итерации}
+	$x_i = \phi(x_{i-1})$
+
+\newpage
+\mysection{Решение нелинейного уравнения}
+	\mysubsection{График функции}
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xlabel={$x$},
+	        ylabel={$y$},
+	        xmin=-10, xmax=10,
+	        ymin=-10, ymax=100,
+	        grid=both,
+		legend style={at={(0.5,1.05)},anchor=south}, % Помещаем легенду над графиком
+	        axis lines=middle,
+	        width=\textwidth,
+	        height=\textwidth,
+	    ]
+	    \addplot[domain=-10:10, samples=100, smooth, thick, red, solid] {x^3+4.81*x^2-17.37*x+5.38};
+	    \addplot[black, only marks, mark=*] coordinates {
+       		 (-7.293,0)
+ 		(0.345,0) % точки пересечения с осью x
+ 		(2.138,0)
+   	   };
+	    \legend{$f(x) = x^3+4.81x^2-17.37x+5.38$}	
+	    \node[above] at (axis cs: -8, 0) {$a_1$};
+	    \node[above] at (axis cs: -6,0) {$b_1$};
+	    \node[above] at (axis cs: 0,0) {$a_2$};
+	    \node[above] at (axis cs: 2,0) {$b_2   a_3$};
+	    \node[above] at (axis cs: 4,0) {$b_3$};
+	    \end{axis}
+	\end{tikzpicture}
+
+	\newpage
+	\mysubsection{Определение промежутков изоляции корней}
+		Определим интервалы изоляции корней по графику "на глаз" 
+		\begin{enumerate}
+			\item{Крайний левый корень - $[-8 : -6]$}
+			\item{Центральный корень - $[0 : 2]$}
+			\item{Крайний правый корень - $[2 : 4]$}
+		\end{enumerate}
+		\mysubsection{Метод хорд}
+		\begin{table}[htbp]
+		    \centering
+		    \begin{tabularx}{\textwidth}{|c|Y|Y|Y|Y|Y|Y|Y|}
+		        \hline
+		        № Шага & $a$ & $b$ & $x$ & $f(a)$ & $f(b)$ & $f(x)$ & $|x_{k+1} - x_{k}|$\\
+		        \hline
+			1 & -8,000 & -6,000 & -7,055 & -59,820 & 66,760 & 16,185 &  - \\
+		        \hline
+			2 & -8,000 & -7,055 & -7,256 & -59,820 & 16,185 & 2,636 &  0,201 \\
+		        \hline
+			3 & -8,00 & -7,256 & -7,287 & -59,820 & 2,636  & 0,426 & 0,031 \\
+		        \hline
+			4 & -8,00 & -7,287 & -7,292 & -59,820 &  0,426 & 0.066 & 0,005 \\
+		        \hline
+		    \end{tabularx}
+		    \caption{Для крайне левого корня}
+		    \label{tab:2}
+		\end{table}
+	\mysubsection{Метод Ньютона}
+		Найдем производную исходной функции:
+		\begin{center}
+			$f'(x) = 3x^2 + 9,62x - 17,37$
+		\end{center}
+		\begin{table}[htbp]
+		    \centering
+		    \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
+		        \hline
+		        № Итерации & $x_{k}$& $f(x_{k})$ & $f'(x_{k})$ & $x_{k+1}$ & $|x_{k+1} - x_{k}|$\\
+		        \hline
+			1 & 1,000 & -6,180 & -4,750 & -0,301 & 1,301\\
+		        \hline
+			2 & -0,301 & 11,017 & -19,994 & 0,250 & 0,551\\
+		        \hline
+			3 & 0,250 & 1,354 & -14,778 & 0,342 & 0,092 \\
+		        \hline
+			4 & 0,342 & 0,042 &-13,729 & 0,345 & 0,003 \\
+			\hline
+		    \end{tabularx}
+		    \caption{Для центрального корня}
+		    \label{tab:3}
+		\end{table}
+	\newpage
+	\mysubsection{Метод простой итерации}
+		\underline{\bf Проверка сходимости} \\
+		Преобразуем уравнение к виду $x = \phi(x)$ \\
+		$\phi(x) = \frac{x^3+4,81x^2+5,38}{17,37}$ \\
+		$\phi'(x) = \frac{3x^2+9,62x}{17,37}$ \\
+		$|\phi'(2)| \approx 1,9 > 1$ - условие сходимости не выполняется \\
+		Попробуем выразить $x$ другим способом \\
+		$\phi(x) = \sqrt{\frac{17,37x - x^3 - 5,38}{4,81}}$	\\
+		$|\phi'(2)| \approx 2,1 > 1$ - условие сходимости не выполняется \\
+		Попробуем выразить $x$ другим способом \\
+		$\phi(x) = \sqrt[3]{17,37x - 4,81x^2 - 5,38}$	\\
+		$|\phi'(2)| \approx 2,2 > 1$ - условие сходимости не выполняется \\
+		Выразить $x$ так, чтобы коэффициент сжатия был меньше единицы не получается, поэтому применим прием введения параметра $\lambda$ \\
+		\begin{center}
+			$f'(x) = 3x^2 + 9,62x - 17,37$ \\
+			$f'(2) =13,87 \hspace{2cm} f'(4) = 69,11 \hspace{2cm} \lambda = - \frac{1}{\max_{[a, b]}|f'(x)|}  = - \frac{1}{69,11}$ \\
+			$ \phi(x) = x + \lambda f(x) =x - \frac{1}{69,11}(x^3+4.81x^2-17.37x+5.38)$ \\
+			$ \phi(x) = -0,014x^3 - 0,070x^2 + 1,251x - 0,078 \hspace{2cm} x_0 = 4$
+		\end{center}
+
+		\underline{\bf Решение}
+		\begin{table}[htbp]
+		    \centering
+		    \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+		        \hline
+		        № Итерации & $x_{k}$ & $x_{k+1}$ & $f(x_{k+1})$ & $|x_{k+1} - x_{k}|$\\
+		        \hline
+			1 & 3 & 2,667 & 12,237 & 0,333 \\
+		        \hline
+			2 &2,667 & 2,495 & 7,516 & 0,172  \\
+		        \hline
+			3 & 2,495 & 2,390 & 4,993 &0,105 \\
+		        \hline
+			4 & 2,390 & 2,320 & 3,458 &0,070 \\
+		        \hline
+			5 & 2,320 & 2,273 & 2,493 &0,053 \\
+		        \hline
+			6 & 2,273 & 2,239 & 1,826 &0,034 \\
+		        \hline
+			7 & 2,239 & 2,215 & 1,372 &0,024 \\
+		        \hline
+			8 & 2,215 & 2,197 & 1,040 &0,018 \\
+		        \hline
+			9 & 2,197 & 2,184 & 0,804 &0,013 \\
+		        \hline
+			10 & 2,184 & 2,174 & 0,626 &0,010 \\
+		        \hline
+		    \end{tabularx}
+		    \caption{Для крайне правого корня}
+		    \label{tab:1}
+		\end{table}
+
+\newpage
+\mysection{Решение системы нелинейных уравнений}
+	\mysubsection{График функций}
+		\begin{tikzpicture}
+		\begin{axis}[
+			axis lines=middle,
+			xlabel={$x$},
+			ylabel={$y$},
+			xmin=-0.4, xmax=1.8,
+			ymin=-1.4, ymax=1.4,
+			xtick={-0.785398, 0, 0.785398, 1.5708, 2.35619},
+			xticklabels={$-\frac{\pi}{4}$, $0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$},
+			ytick={-1.5708, -0.785398, 0, 0.785398, 1.5708},
+			yticklabels={$-\frac{\pi}{2}$, $-\frac{\pi}{4}$, $0$, $\frac{\pi}{4}$, $\frac{\pi}{2}$},
+			grid=both,
+			axis lines=middle,
+			width=\textwidth,
+			height=\textwidth,
+			legend style={at={(0.5,1.05)},anchor=south}, % Помещаем легенду над графиком
+		    ]
+		    	\addplot[blue, thick, domain=0.5:1.5, samples=100] {rad(asin(2 - 2*x))};
+			\addlegendentry{$\sin(y) + 2x = 2$}
+		    	\addplot[red, thick, domain=-1:2, samples=100] {0.7 - cos(deg(x - 1))};
+			\addlegendentry{$y + \cos(x - 1) = 0,7$}
+			\addplot[black, only marks, mark=*] coordinates {
+	       		 (1.143,-0.29)
+   	  		 };
+		\end{axis}
+		\end{tikzpicture}
+	\mysubsection{Определение областей изоляции корней}
+		По графику видно, что искомый корень находится в области:
+		\begin{equation*}
+			\begin{cases}
+				0 < x < \frac{\pi}{2} \\
+				- \frac{\pi}{4} < y < 0 
+
+			\end{cases}
+		\end{equation*}
+	\mysubsection{Метод простой итерации}
+		\underline{\bf Проверка сходимости} \\
+		\begin{equation*}
+			\begin{cases}
+				x = 1 - \frac{\sin(y)}{2} \\
+				y = 0,7 - \cos(x - 1)
+			\end{cases}
+		\end{equation*}
+		\begin{center}
+			$\frac{\partial \phi_1}{\partial x} = 0$ \hspace{3cm}
+			$\frac{\partial \phi_1}{\partial y} =- \frac{\cos(y)}{2}$ \\
+			$\frac{\partial \phi_2}{\partial x} = \sin(x - 1)$ \hspace{3cm}
+			$\frac{\partial \phi_2}{\partial y} = 0$ \\
+		\end{center}
+		$|\frac{\partial \phi_1}{\partial x}| + |\frac{\partial \phi_1}{\partial y}| < 1$ \\
+		$|\frac{\partial \phi_2}{\partial x}| + |\frac{\partial \phi_2}{\partial y}| < 1$ - следовательно процесс сходящийся
+
+		\vspace{5mm}
+		
+		\underline{\bf Решение} \\
+		Выберем начальное приближение  $x^{(0)} = \frac{\pi}{2} = 1,571; y^{(0)} = - \frac{\pi}{4} = -0,785$ 
+		\begin{table}[htbp]
+		    \centering
+		    \begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
+		        \hline
+		        № Шага & $x^{(i)}$& $y^{(i)}$ & $|x^{(i)} - x^{(i-1)}|$ & $|y^{(i)} - y^{(i-1)}|$\\
+		        \hline
+			1 & 1,354 & -0,141 &  0,217 & 0,644 \\
+		        \hline
+			2 & 1,070 & -0,238 &  0,284 & 0,097 \\ 
+		        \hline
+			3 & 1,118 & -0,298 & 0,048 & 0,060 \\
+		        \hline
+			4 & 1,147 & -0,293 & 0,029 & 0,005 \\
+		        \hline
+			5 & 1,144 & -0,289 & 0,003 &  0,004 \\
+		        \hline
+		    \end{tabularx}
+		    \caption{Система нелинейных уравнений}
+		    \label{tab:4}
+		\end{table}
+		\vspace{5mm}
+
+\newpage
+\mysection{Программная реализация задачи}
+	\mysubsection{Основные методы программы}
+	\mysubsection{Ссылка на исходный код к лабораторной работе}
+
+\newpage
+\mysection{Вывод}
+\end{document}
