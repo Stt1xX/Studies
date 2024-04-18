@@ -1,10 +1,11 @@
 <template>
   <div id="cap">
-    <button id="Lab2" class="mapper">Lab2</button>
-    <button id="Lab3" class="mapper">Lab3</button>
-    <button id="Lab4" class="mapper">Lab4</button>
-    <button id="Lab5" class="mapper">Lab5</button>
-    <button id="Lab6" class="mapper">Lab6</button>
+    <router-link to="/Lab2Part1" class="mapper" tag="button">Lab2.1</router-link>
+    <router-link to="/Lab2Part2" class="mapper" tag="button">Lab2.2</router-link>
+    <router-link to="/Lab3" class="mapper" tag="button">Lab3</router-link>
+    <router-link to="/Lab4" class="mapper" tag="button">Lab4</router-link>
+    <router-link to="/Lab5" class="mapper" tag="button">Lab5</router-link>
+    <router-link to="/Lab6" class="mapper" tag="button">Lab6</router-link>
   </div>
   <div id="pixel-art">
     <form>
@@ -54,6 +55,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
+  a {
+    text-decoration:none;
+    text-align: center;
+  }
+
+
   #cap {
     top: 0;
     position: sticky;
@@ -100,5 +107,9 @@
     background-color: transparent;
     color: bisque;
     transition: 0.8s;
+  }
+
+  #reload-button {
+    color: bisque;
   }
 </style>
