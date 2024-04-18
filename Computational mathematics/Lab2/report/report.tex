@@ -9,12 +9,14 @@
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{setspace}
-\usepackage[unicode, pdftex]{hyperref}
 \usepackage{extsizes}
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{tocloft}
+\usepackage{minted}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=]{hyperref}
+
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cfttoctitlefont}{\LARGE\bfseries}
 % Начало блока кода, который позволяет включить section* в оглавление
@@ -256,7 +258,7 @@
 			$f'(x) = 3x^2 + 9,62x - 17,37$ \\
 			$f'(2) =13,87 \hspace{2cm} f'(4) = 69,11 \hspace{2cm} \lambda = - \frac{1}{\max_{[a, b]}|f'(x)|}  = - \frac{1}{69,11}$ \\
 			$ \phi(x) = x + \lambda f(x) =x - \frac{1}{69,11}(x^3+4.81x^2-17.37x+5.38)$ \\
-			$ \phi(x) = -0,014x^3 - 0,070x^2 + 1,251x - 0,078 \hspace{2cm} x_0 = 4$
+			$ \phi(x) = -0,014x^3 - 0,070x^2 + 1,251x - 0,078 \hspace{2cm} x_0 = 3$
 		\end{center}
 
 		\underline{\bf Решение}
@@ -374,9 +376,100 @@
 
 \newpage
 \mysection{Программная реализация задачи}
-	\mysubsection{Основные методы программы}
 	\mysubsection{Ссылка на исходный код к лабораторной работе}
-
+	\href{https://github.com/Stt1xX/Studies/tree/main/Computational%20mathematics/Lab2}{Git Hub}
+	\mysubsection{Основные методы программы}
+\underline{\bf Метод половинного деления}
+\begin{minted}[mathescape, linenos]{python}
+def half_division(left, right, equation, accuracy):
+    counter = 0
+    search_value = define_method(equation)
+    while right - left > accuracy:
+        x = (right + left) / 2
+        if search_value(x) * search_value(left) > 0:
+            left = x
+        else:
+            right = x
+        counter += 1
+    return {"status" : 1, "root" : x, "value" : search_value(x),
+ 		"number_of_iterations" : counter}
+\end{minted}
 \newpage
+\underline{\bf Метод секущих}
+\begin{minted}[mathescape, linenos]{python}
+def secant(left, right, approach, equation, accuracy):
+    counter = 0
+    search_value = define_method(equation)
+    search_value_second_derivative = 
+define_method_for_second_derivative(equation)
+    preprevious = None
+    previous = None
+    if search_value(left) * search_value_second_derivative(left) > 0:
+        preprevious = left
+    else:
+        preprevious = right
+
+    if approach != "" and abs(preprevious - approach) > accuracy:
+        previous = approach
+    elif preprevious == left:
+        previous = preprevious + 0.2
+    else:
+        previous = preprevious - 0.2
+            
+    while abs(preprevious - previous) > accuracy:
+        x = previous - (previous - preprevious) * search_value(previous) 
+/ (search_value(previous) - search_value(preprevious))
+        counter += 1
+        preprevious = previous
+        previous = x
+
+    return {"status" : 1, "root" : previous, "value" :
+ search_value(preprevious), "number_of_iterations" : counter}
+\end{minted}
+\newpage
+\underline{\bf Метод простых итераций}
+\begin{minted}[mathescape, linenos]{python}
+def simple_iterations_equation(left, right, approach, equation, accuracy):
+    search_value = define_method(equation)
+    search_first_derivative = define_method_for_first_derivative(equation)
+    counter = 1
+    x = None
+    previous = None
+    if approach != "":
+        previous = approach
+        if search_first_derivative(previous) > 0:
+            gamma = -1 / search_max_derivative(left, right, equation)
+.get('max_value')
+        else:
+            gamma = 1 / search_max_derivative(left, right, equation)
+.get('max_value')
+    else:
+        if abs(search_first_derivative(left)) >=
+ abs(search_first_derivative(right)):
+            previous = left
+        else:
+            previous = right
+        if search_first_derivative(previous) > 0:
+            gamma = -1 / search_max_derivative(left, right, equation)
+.get('max_value')
+        else:
+            gamma = 1 / search_max_derivative(left, right, equation)
+.get('max_value')
+    x = gamma * search_value(previous) + previous
+    if abs(gamma * search_first_derivative(left) + 1) > 1
+ or  abs(gamma * search_first_derivative(right) + 1) > 1:
+        return {"status" : 0, "error" : "К сожалению этот метод не сходится, 
+попробуйте уменьшить промежуток поиска корня"}
+    while abs(x - previous) > accuracy:
+        previous = x
+        x = gamma * search_value(previous) + previous
+        counter += 1
+    return {"status" : 1, "root" : x, "value" : search_value(x), 
+"number_of_iterations" : counter}
+\end{minted}
 \mysection{Вывод}
+В ходе выполнения лабораторной работы было изучено несколько итерационных методов решения нелинейных уравнений, а также два метода для решения системы нелинейных уравнений. 
+Была реализована программа на языках программирования Python и Java Script. Были
+проанализированы условия возможности применения тех или иных численных
+методов, их достоинства и недостатки. 
 \end{document}
