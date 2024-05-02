@@ -38,7 +38,6 @@ async def index(method, equalization, approachX, approachY, accuracy):
 
 @app.get("/download_equation")
 async def file_equation():
-        print(last_equation)
         return PlainTextResponse(repr(last_equation))
 
 @app.get("/download_system")
