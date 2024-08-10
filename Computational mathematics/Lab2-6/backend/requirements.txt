@@ -1,0 +1,7 @@
+fastapi
+redis
+types-redis
+uvicorn
+jinja2
+numpy
+watchfiles
