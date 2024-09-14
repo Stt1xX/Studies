@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQuery(name="getSessionId.byValue", query = "SELECT e FROM SessionEntity e WHERE e.identifier = ?1")
-@Table(name = "session", schema = "public", catalog = "postgres")
+@Table(name = "session", schema = "public", catalog = "Lab3DataBase")
 public class SessionEntity {
     @Basic
     @Column(name = "identifier")

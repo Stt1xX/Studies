@@ -1,55 +1,32 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy.stats import chi2, ttest_ind
+import numpy as np
+from scipy import stats
 
-data = pd.read_csv("exams_dataset.csv")
-first_variable = data["math score"]
-second_variable = data["writing score"]
-alpha = 0.05
+n = 200
+N = 100
 
-n = int(1 + np.log2(len(first_variable))) # по стерджессу
-
-left = min(first_variable.min(),second_variable.min())
-right = max(first_variable.max(),second_variable.max())
-
-first_grouped, _ = np.histogram(first_variable, bins=n, range=(left, right))
-second_grouped, _ = np.histogram(second_variable, bins=n, range=(left, right))
-
-chi_value = len(first_variable) * len(second_variable) * np.sum(1 / (first_grouped + second_grouped) * (first_grouped / len(first_variable) - second_grouped / len(second_variable))**2)
-p_value = 1 - chi2.cdf(chi_value, df = n - 1)
-
-print("--- Метод, реализованный самостоятельно ---")
-if p_value > 0.05:
-    print("Принимаем гипотезу H0")
-else:
-    print("Отклоняем гипотезу H0")
-print(f'Статистика Хи-квадрат: {chi_value }\nР-значение: {p_value}')
+loc = 1000
+scale = 76
 
 
-# Готовая реализация критерия Стьюдента
- 
-statistic, p_value1 = ttest_ind(a=first_variable, b=second_variable)
+def count(size):
+    means1 = []
+    means2 = []
+    for i in range(N):
+        array1 = np.mean(stats.norm.rvs(size=size))
+        array2 = np.mean(stats.f.rvs(dfn=100, dfd=100, size=size))
+        means1.append(array1)
+        means2.append(array2)
+    return means1, means2
 
-print("--- Готовая реализация метода ---")
-if p_value1 > 0.05:
-    print("Принимаем гипотезу H0")
-else:
-    print("Отклоняем гипотезу H0")
-print(f'Статистика Стьюдента: {statistic }\nР-значение: { p_value1 }')
-
-plt.plot(np.linspace(left, right, len(first_grouped)), first_grouped, label="Математика", color='c')
-plt.plot(np.linspace(left, right, len(first_grouped)), second_grouped, label="Письменная часть", color='y')
-plt.xlabel("Баллы")
-plt.ylabel("Кол-во набравших")
-plt.title("Распределение случайных величин")
-plt.legend()
-plt.show()
-
+ret_arr = count(n)
+left = np.min(np.array(ret_arr))
+right = np.max(np.array(ret_arr))
 compute = lambda x, array : np.sum(x >= array) / len(array)
-x_values = np.linspace(left, right, len(first_variable))
-y_first = [compute(x, first_variable) for x in x_values]
-y_second = [compute(x, second_variable) for x in x_values]
+x_values = np.linspace(left, right, N)
+y_first = [compute(x, ret_arr[0]) for x in x_values]
+y_second = [compute(x, ret_arr[1]) for x in x_values]
 
 plt.plot(x_values, y_first, label="Математика", color='c')
 plt.plot(x_values, y_second, label="Письменная часть", color='y')
@@ -58,3 +35,66 @@ plt.xlabel("Значение")
 plt.ylabel("Вероятность")
 plt.legend()
 plt.show()
+
+
+# average_sample = np.mean(random_variable)
+# sd_sample = np.std(random_variable, ddof=1)
+
+# n = int(1 + np.log2(len(random_variable))) # по стерджессу
+# intervals = np.linspace(random_variable.min(), random_variable.max(), n + 1)
+# cumul_distr_func = stats.norm.cdf(intervals, loc=average_sample, scale=sd_sample)
+# theoretical_frequencies = (cumul_distr_func[1:] - cumul_distr_func[:-1]) * len(random_variable)
+# real_frequencies, _ = np.histogram(random_variable, bins=intervals, density=False)
+# chi_value = sum((real_frequencies - theoretical_frequencies)**2 /  theoretical_frequencies)
+# p_value = 1 - stats.chi2.cdf(chi_value, df = n - 1)
+
+
+# print("--- Метод, реализованный самостоятельно ---")
+# if p_value > 0.05:
+#     print("Принимаем гипотезу H0")
+# else:
+#     print("Отклоняем гипотезу H0")
+# print(f'Статистика Хи-квадрат: {chi_value }\nР-значение: {p_value}')
+
+# # Готовая реализаяция
+
+# statistic, p_value1, _, _ = stats.chi2_contingency([real_frequencies, theoretical_frequencies])
+
+# print("--- Готовая реализация метода ---")
+# if p_value1 > 0.05:
+#     print("Принимаем гипотезу H0")
+# else:
+#     print("Отклоняем гипотезу H0")
+# print(f'Статистика Хи-квадрат: {statistic }\nР-значение: { p_value1 }')
+
+# График частот
+
+
+# x_values = np.linspace(random_variable.min(), random_variable.max(), len(real_frequencies))
+
+# plt.plot(x_values, real_frequencies, label="Функция наблюдаемых значений", color="c")
+# plt.plot(x_values, theoretical_frequencies, label="Теоретическая функция", color="y")
+# plt.title("График частот")
+# plt.xlabel("Значение")
+# plt.ylabel("Частота")
+# plt.legend()
+# plt.show()
+
+# # График эмперических функций распределения
+
+# x_values = np.linspace(random_variable.min(), random_variable.max(), len(random_variable))
+# compute = lambda x : np.sum(random_variable <= x) / len(random_variable)
+
+# real_values = [compute(x) for x in x_values]
+# theoretical_values = stats.norm.cdf(x_values, loc=average_sample, scale=sd_sample)
+
+# plt.hist(count(n), bins=100)
+# plt.plot(x_values, theoretical_values, label="Теоретическая функция", color="y")
+# plt.title("Сравнение эмперических фукнций распределения")
+# plt.xlabel("Значение")
+# plt.ylabel("Вероятность")
+# plt.legend()
+# plt.show()
+
+# plt.hist(count(100), bins=100)
+# plt.show()
