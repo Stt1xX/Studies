@@ -357,7 +357,7 @@ import { defineProps, ref, defineEmits } from 'vue';
         current_list.value = (current_list.value) % 6 + 1
         emit('change-list', current_list.value)
     }
-
+    
     const dec_list = () => {
         current_list.value = (current_list.value + 4) % 6 + 1
         emit('change-list', current_list.value)

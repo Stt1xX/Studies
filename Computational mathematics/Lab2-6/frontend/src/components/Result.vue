@@ -25,6 +25,7 @@
     #result p{
         font-size: 3vh;
         text-align: center;
+        width: 100%;
     }
 
     #result div{

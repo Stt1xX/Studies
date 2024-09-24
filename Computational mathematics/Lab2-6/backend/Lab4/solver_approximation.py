@@ -1,7 +1,7 @@
-from math import sqrt, exp, log
+from math import sqrt, exp, log, pow
 import numpy as np 
 
-def find_approximations(x_values, y_values):
+def find_approximation(x_values, y_values):
     local_x_values = []
     local_y_values = []
     for i in range(len(x_values)):
@@ -105,13 +105,16 @@ def find_exp_function(x_values, y_values):
         b = result_arr[1][1]
         degree_values = []
         for x in x_values:
-            degree_values.append(round(a * x**b, 3))
+            degree_values.append(round(a * pow(x, b), 3))
         reliability = round(find_reliability(y_values, degree_values), 3)
+        print({"a" : round(a, 3), "b" : round(b, 3), "values" : degree_values, "differences" : find_differences(y_values, degree_values), 
+            "deviation" : find_diviation(y_values, degree_values), 
+            "reliability" : reliability, "status" : define_status(reliability) })
         return {"a" : round(a, 3), "b" : round(b, 3), "values" : degree_values, "differences" : find_differences(y_values, degree_values), 
             "deviation" : find_diviation(y_values, degree_values), 
             "reliability" : reliability, "status" : define_status(reliability) }
     except Exception:
-        return {"error" : "Для аппроксимации спомощью степенной функции используется логарифм по y, поэтому координатa точек y должна быть положительной" }
+        return {"error" : "Для аппроксимации спомощью экспоненциальной функции используется логарифм по y, поэтому координатa точек y должна быть положительной" }
     
 def find_log_function(x_values, y_values):
     try:
@@ -127,7 +130,7 @@ def find_log_function(x_values, y_values):
             "deviation" : find_diviation(y_values, log_values), 
             "reliability" : reliability, "status" : define_status(reliability) }
     except Exception:
-        return {"error" : "Для аппроксимации спомощью степенной функции используется логарифм по x, поэтому координатa точек x должна быть положительной" }
+        return {"error" : "Для аппроксимации спомощью логарифмической функции используется логарифм по x, поэтому координатa точек x должна быть положительной" }
 
 
 def find_differences(y_values, phi_values):
@@ -191,3 +194,4 @@ def define_status(reliability):
         return "Низкая точность аппроксимации"
     else:
         return "Неудовлетворительная точность аппроксимации"
+    

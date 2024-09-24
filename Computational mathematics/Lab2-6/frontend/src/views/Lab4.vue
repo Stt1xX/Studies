@@ -90,7 +90,7 @@
     import {ref, onMounted} from 'vue'
 
     import Task from '../components/Task.vue'
-    import Result from '@/components/ResultLab4.vue';
+    import Result from '@/components/ResultLab4.vue'
     import Graph from '@/components/GraphLab4.vue'
 
     const general_response = ref()

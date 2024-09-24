@@ -8,12 +8,14 @@ from typing import List
 from backend.Lab2.solver_equation import solve_equation
 from backend.Lab2.solver_system import sovle_system
 from backend.Lab3.solver_intergral import solve_intergral
-from backend.Lab4.solver_approximation import find_approximations
+from backend.Lab4.solver_approximation import find_approximation
+from backend.Lab5.solver_interpolation import find_interpolation_type1, find_interpolation_type2
 
 last_system = None
 last_equation = None
 last_integral = None
 last_approx = None
+last_interpol = None
 
 app = FastAPI()
 
@@ -51,8 +53,21 @@ async def index(method, equation, left, right, accuracy):
 @app.get("/solve/Lab4")
 async def index(x_values : List[str] = Query(None), y_values : List[str] = Query(None)):
      global last_approx
-     last_approx = find_approximations(x_values, y_values)
+     last_approx = find_approximation(x_values, y_values)
      return JSONResponse(content=last_approx)
+
+@app.get("/solve/Lab5/type1")
+async def index(argument, x_values : List[str] = Query(None), y_values : List[str] = Query(None)):
+     global last_interpol
+     last_interpol = find_interpolation_type1(argument, x_values, y_values)
+     return JSONResponse(content=last_interpol)
+
+
+@app.get("/solve/Lab5/type2")
+async def index(left_border, right_border, argument, number_of_equation, number_of_points):
+     global last_interpol
+     last_interpol = find_interpolation_type2(argument, number_of_equation, left_border, right_border, number_of_points)
+     return JSONResponse(content=last_interpol)
 
 @app.get("/download/Lab2Part1")
 async def file_equation():
@@ -70,9 +85,14 @@ async def file_equation():
 async def file_approx():
         return PlainTextResponse(str(last_approx))
 
-@app.post("/parse/Lab2Part2")
+@app.get("/download/Lab5")
+async def file_interpol():
+        return PlainTextResponse(str(last_interpol)) 
+
+@app.post("/parse/Lab2Part1")
 @app.post("/parse/Lab2Part2")
 @app.post("/parse/Lab4")
+@app.post("/parse/Lab5")
 async def parse_file_equation(file: UploadFile = File(...)):
     try:
         contents = file.file.read()

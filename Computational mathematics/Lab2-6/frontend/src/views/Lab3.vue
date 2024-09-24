@@ -53,7 +53,7 @@
 
     const response = ref()
 
-    const sent_data = () => {
+    const send_data = () => {
         $.get('/solve/Lab3', {
             method: method.value,
             equation: equation.value,
@@ -196,7 +196,7 @@
         check_right() &&
         check_accuracy()      
         ){
-        sent_data()
+        send_data()
         } else {
             response.value = null
         }
