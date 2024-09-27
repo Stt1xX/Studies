@@ -42,7 +42,7 @@
                                 <option value="3">y = 5sin(x) - 2cos(x)</option>
                             </select>
                         </div>
-                        Укажите промежуток:
+                        Укажите промежуток
                         <div id="interval" class="custom-input">
                             <input id="left_input" v-model="left_border" placeholder="Начало" type="text" maxlength="7" @input="check_left_border"/>
                             <input id="right_input" v-model="right_border" placeholder="Конец" type="text" maxlength="7" @input="check_right_border"/>
@@ -56,10 +56,6 @@
                 </div>
             </div>
             <div id="graph" class="rounded">
-                <!-- <Graph :lagrange_points="args_values.lagrange_method.points " :newton_separate_points="args_values.newton_separated_method.points"
-                        :newton_finite_points="args_values.newton_finite_method.points"
-                        :true_value_points="args_values.true_value.points"
-                        :interpol_points="args_values.interpol_points"/>   -->
                 <Graph :args_values="args_values"/>
             </div>
         </div>
@@ -237,7 +233,7 @@
             if (args_values.value != null){
                 let link = document.createElement('a');
                 link.setAttribute('href', '/download/Lab5');
-                link.setAttribute('download', 'interpolation.txt');
+                link.setAttribute('download', 'Lab5_result.txt');
                 link.click();
             }
             return true;
@@ -373,7 +369,7 @@
         return !isNaN(value) && 
                 parseInt(Number(value)) == value && 
                 !isNaN(parseInt(value, 10));
-        }
+    }
 
     const check_solve = () => {    
         switch(current_list.value){

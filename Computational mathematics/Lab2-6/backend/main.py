@@ -10,12 +10,14 @@ from backend.Lab2.solver_system import sovle_system
 from backend.Lab3.solver_intergral import solve_intergral
 from backend.Lab4.solver_approximation import find_approximation
 from backend.Lab5.solver_interpolation import find_interpolation_type1, find_interpolation_type2
+from backend.Lab6.differential_solver import solve_differential_equation
 
 last_system = None
 last_equation = None
 last_integral = None
 last_approx = None
 last_interpol = None
+last_diffeq = None
 
 app = FastAPI()
 
@@ -69,6 +71,13 @@ async def index(left_border, right_border, argument, number_of_equation, number_
      last_interpol = find_interpolation_type2(argument, number_of_equation, left_border, right_border, number_of_points)
      return JSONResponse(content=last_interpol)
 
+
+@app.get("/solve/Lab6")
+async def index(left_border, right_border, accuracy, equation_number, h_value, y0_value):
+     global last_diffeq
+     last_diffeq = solve_differential_equation(accuracy, y0_value, h_value, left_border, right_border, equation_number)
+     return JSONResponse(content=last_diffeq)
+
 @app.get("/download/Lab2Part1")
 async def file_equation():
         return PlainTextResponse(str(last_equation))
@@ -89,10 +98,15 @@ async def file_approx():
 async def file_interpol():
         return PlainTextResponse(str(last_interpol)) 
 
+@app.get("/download/Lab6")
+async def file_diffeq():
+        return PlainTextResponse(str(last_diffeq))
+
 @app.post("/parse/Lab2Part1")
 @app.post("/parse/Lab2Part2")
 @app.post("/parse/Lab4")
 @app.post("/parse/Lab5")
+@app.post("/parse/Lab6")
 async def parse_file_equation(file: UploadFile = File(...)):
     try:
         contents = file.file.read()

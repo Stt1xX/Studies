@@ -1,0 +1,8 @@
+{
+  "left_border" : 1,
+  "right_border" : 1.5,
+  "equation_number" : 1,
+  "accuracy" : 0.1,
+  "h_value" : 0.1,
+  "y0_value" : "-1"
+}
