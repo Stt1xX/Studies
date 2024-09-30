@@ -1,8 +1,8 @@
 {
-  "adjust_code" : 2,
-  "left_border" : 5,
-  "right_border" : 15,
-  "number_of_points" : 12,
-  "argument" : 10.5,
-  "number_of_equation" : "3"
+  "left_border" : 1,
+  "right_border" : 1.5,
+  "equation_number" : 1,
+  "accuracy" : 0.1,
+  "h_value" : 0.1,
+  "y0_value" : "-1"
 }

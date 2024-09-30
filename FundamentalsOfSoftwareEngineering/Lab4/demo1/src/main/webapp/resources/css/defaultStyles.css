@@ -1,0 +1,414 @@
+:root{
+    --backgroundColor: #2D1D5B;
+    --fontColor: #F792E3;
+    --borderColor: #110E28;
+}
+
+html, body{
+    background: url(../images/Space\ Background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+body{
+    margin: 0;
+    word-break: break-word;
+    overflow-x: hidden;
+    position:relative
+}
+
+* {
+    user-select: none;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+section {
+    padding-top: 80px;
+    min-height: 100vh;
+    padding-bottom: 600px;
+}
+
+#generalTable {
+    text-align: center;
+    width: 100vw;
+    border-spacing: 0 100px;
+}
+
+
+#task {
+    border-spacing: 0 30px;
+    display: inline-block;
+    width: 700px;
+    height: 100px;
+}
+
+#task p{
+    font-size:  30px;
+    font-family: "FutureStyle";
+    color: var(--fontColor);
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+#header{
+    background-size: cover;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/BladeRunner.gif);
+    font-size: 300px;
+    font-family: 'BitCell';
+    color: var(--fontColor);
+}
+
+.framed{
+    color: var(--backgroundColor);
+    box-shadow:
+            -50px -50px 0 -40px,
+            50px 50px 0 -40px ;
+}
+
+#canvasWrapper{
+    display: inline-block;
+    padding: 30px;
+}
+
+#adjusting{
+    line-height: 1.8;
+    border-spacing: 0 30px;
+    font-size: 30px;
+    font-family: "FutureStyle";
+    color: var(--fontColor);
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#adjusting input{
+    opacity: 1;
+    color: var(--fontColor);
+    display: inline-block;
+    width: 80%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 2px solid var(--fontColor);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#adjusting input::placeholder{
+    color: var(--fontColor);
+}
+
+input:focus {
+    outline: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    box-shadow: inset 0 0 20px 20px var(--backgroundColor);
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--fontColor)
+}
+
+
+button{
+    color: var(--fontColor);
+    vertical-align: middle;
+    border-radius: 20px;
+    border: 2px solid var(--fontColor);
+    background-color: var(--borderColor);
+    font-family: "FutureStyle";
+    transition: 0.5s;
+    cursor:pointer;
+}
+
+.CoordX{
+    font-size: 1rem;
+}
+
+#adjusting input[name="CoordinateX"]{
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+}
+
+#CoordinateXtable{
+    width: 100%;
+    text-align: center;
+}
+
+.custom-radio{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-radio+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    border-radius: 50%;
+    margin-right: 0.5em;
+    border: 2px solid var(--fontColor);
+    background-color: var(--borderColor);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    border: 2px solid var(--borderColor);
+    background-color: var(--fontColor);
+    transition: 0.5s;
+}
+
+.custom-radio:checked+label::before {
+    border: 2px solid var(--borderColor);
+    background-color: var(--fontColor);
+}
+
+#Submit{
+    width: 250px;
+    height: 50px;
+    font-size: 30px;
+}
+
+.startButton input ,#adjusting #myForm\:submitAjax{
+    color: var(--fontColor);
+    vertical-align: middle;
+    border: 2px solid var(--fontColor);
+    background-color: var(--borderColor);
+    font-family: "FutureStyle";
+    transition: 0.5s;
+    cursor:pointer;
+    border-radius: 50px;
+    width: 450px;
+    height: 90px;
+    font-size: 50px;
+}
+
+#adjusting #myForm\:submitAjax {
+    width: 280px;
+    height: 60px;
+    font-size: 30px;
+}
+
+button:hover ,#adjusting #myForm\:submitAjax:hover, .startButton input:hover {
+    background-color: var(--fontColor);
+    color: var(--borderColor);
+    border-color: var(--borderColor);
+    transition: 0.5s;
+}
+
+
+.scallop {
+    background-color: var(--backgroundColor);
+    border: 3px solid var(--borderColor);
+    border-radius: 15px;
+}
+
+#footer{
+    padding: 30px;
+    text-align: center;
+    border-top: 3px solid var(--borderColor);
+    color: var(--fontColor);
+    background-color: var(--backgroundColor);
+    border-spacing: 0 0;
+    font-family: "FutureStyle";
+    font-size: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+tr.spaceUnder>td {
+    padding-bottom: 2em;
+}
+
+a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    transform: scale(1.2);
+}
+
+/* работа с secondPage */
+
+
+#attemptTable{
+    width: 85%;
+    height: 100px;
+    font-family: "FutureStyle";
+    font-size: 40px;
+    color: var(--fontColor);
+    text-align: center;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#tableWrap{
+    padding: 30px;
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+}
+
+#attemptTable td, th{
+    border-bottom: 2px solid var(--fontColor);
+}
+
+@font-face {
+    font-family: "BitCell";
+    src:  url("../fonts/bitcell_memesbruh03.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "FutureStyle";
+    src: url("../fonts/Exo-VariableFont_wght.ttf") format("truetype");
+}
+
+#adjusting .InputError{
+    color : red;
+    border-bottom: 2px solid red;
+}
+
+#adjusting .InputError::placeholder{
+    color: red;
+}
+
+.InputError:-webkit-autofill,
+.InputError:-webkit-autofill:hover,
+.InputError:-webkit-autofill:focus,
+.InputError:-webkit-autofill:active {
+    box-shadow: inset 0 0 20px 20px var(--backgroundColor);
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: red;
+    -webkit-text-stroke-color: red;
+}
+
+.coordinateInput:-webkit-autofill,
+.coordinateInput:-webkit-autofill:hover,
+.coordinateInput:-webkit-autofill:focus,
+.coordinateInput:-webkit-autofill:active
+{
+    box-shadow: inset 0 0 20px 20px var(--backgroundColor);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+label[name="RadioError"]::before {
+    border: 2px solid red;
+}
+
+#graph {
+    cursor: pointer;
+}
+
+body .ui-slider .ui-slider-handle{
+    background: var(--borderColor);
+    border: 2px solid var(--fontColor);
+}
+
+body .ui-slider:hover .ui-slider-handle:hover{
+    background: var(--fontColor);
+    border: 2px solid var(--borderColor);
+    transition: 0.5s;
+}
+
+body .ui-inputfield:focus {
+    box-shadow: 0 0 0px var(--backgroundColor);
+}
+
+#myForm\:radius{
+    width: 50%;
+    position: relative;
+}
+
+option:hover{
+    /*box-shadow: 0 0 10px 100px #110E28 inset;*/
+    background: var(--borderColor);
+}
+
+select {
+    appearance: none;
+    /*  safari  */
+    -webkit-appearance: none;
+    /*  other styles for aesthetics */
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: var(--backgroundColor);
+    border: 2px solid var(--fontColor);
+    border-radius: 0.25rem;
+    color: var(--fontColor);
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: var(--fontColor);
+    outline:none;
+}
+
+select.SelectError{
+    border: 2px solid red;
+    color: red;
+}
+
+select.SelectError:focus{
+    border-color: red;
+    outline:none;
+}
+
+
+#myForm\:Radius::before,
+#myForm\:Radius::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+
+#myForm\:Radius::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid black;
+    top: 40%;
+}
+
+#myForm\:Radius::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid black;
+    top: 55%;
+}
+
+#myForm\:submitAjax{
+    box-shadow: 0 0 0 0 #000000;
+}

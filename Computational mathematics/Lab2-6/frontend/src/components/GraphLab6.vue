@@ -123,8 +123,6 @@
         }
         return ret_arr
     }
-
-
 </script>
 
 <style scoped>

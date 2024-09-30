@@ -93,6 +93,7 @@ public class Container {
     }
 
     public void addAttempt(Integer coordinateX, Double coordinateY, Integer radius){
+        System.out.println("ADDING!!!!!! " +  coordinateX + " " + coordinateY + " " + radius);
         Attempt attempt = new Attempt(coordinateX, coordinateY, radius);
         attempt.calculateIsHit();
         attempt.setTime(new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));

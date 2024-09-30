@@ -1,0 +1,12 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+    <url-mapping>
+        <pattern value="/PrimePage" />
+        <view-id value="/main.xhtml" />
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/"></pattern>
+        <view-id value="/home.xhtml"/>
+    </url-mapping>
+
+</pretty-config>
