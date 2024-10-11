@@ -16,9 +16,6 @@ public class PercentCounter implements SecondMXBean {
 
     private final Map<Integer, Double> sessionsPercentOfHit = new HashMap<>();
 
-    @Inject
-    private PointsChecker pointsChecker;
-
     public PercentCounter() throws MalformedObjectNameException, MBeanRegistrationException, NotCompliantMBeanException, InstanceAlreadyExistsException {
         ObjectName name = new ObjectName("org.example.lab3:name=PercentCounter");
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
@@ -29,27 +26,23 @@ public class PercentCounter implements SecondMXBean {
         System.out.println("PersentCounter has been created");
     }
 
-    public PointsChecker getPointsChecker() {
-        return pointsChecker;
-    }
-
-    public void setPointsChecker(PointsChecker pointsChecker) {
-        this.pointsChecker = pointsChecker;
-    }
-
     @Override
-    public Map<Integer, Double> getPercentOfHits(){
-        setPercentOfHits();
+    public Map<Integer, Double> getSessionsPercentOfHit(){
         return sessionsPercentOfHit;
     }
 
-    @PostConstruct
-    private void setPercentOfHits() {
-        for (Map.Entry<Integer, Integer> entry : pointsChecker.getSessionsPoints().entrySet()) {
-            if (pointsChecker.getSessionsPointsBad().containsKey(entry.getKey())) {
-                Double percentNumber = (1 - (double) pointsChecker.getSessionsPointsBad().get(entry.getKey()) / pointsChecker.getSessionsPoints().get(entry.getKey())) * 100;
-                sessionsPercentOfHit.put(entry.getKey(), percentNumber);
-            }
+    public void setPercentOfHits(PointsChecker pointsChecker) {
+        Map<Integer, Integer> allMap = pointsChecker.getSessionsPoints();
+        Map<Integer, Integer> badMap = pointsChecker.getSessionsPointsBad();
+//        for (Map.Entry<Integer, Integer> entry : allMap.entrySet()){
+//            System.out.println(entry.getKey() + ": " + entry.getValue());
+//        }
+//        for (Map.Entry<Integer, Integer> entry : badMap.entrySet()){
+//            System.out.println(entry.getKey() + ": " + entry.getValue());
+//        }
+        for(Map.Entry<Integer, Integer> entry : allMap.entrySet()){
+            Double percentNumber = (1 - (double) badMap.get(entry.getKey()) / allMap.get(entry.getKey())) * 100;
+            sessionsPercentOfHit.put(entry.getKey(), percentNumber);
         }
     }
 }

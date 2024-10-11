@@ -129,9 +129,10 @@ public class Container {
             sessionId = getSessionId();
         }
 
-        pointsChecker.checkMissesInRow(attempt, sessionId);
-
         addAttemptToDb(attempt, sessionId);
+
+        pointsChecker.checkMissesInRow(attempt, sessionId);
+        percentCounter.setPercentOfHits(pointsChecker);
 
     }
 }

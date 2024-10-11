@@ -46,7 +46,7 @@ public class PointsChecker extends NotificationBroadcasterSupport implements Fir
         System.out.println("Point Checker has been created");
     }
 
-    private void setSessionPoints () {
+    public void setSessionPoints () {
         sessionsPoints.clear();
         TypedQuery<AttemptEntity> listOfSession = entityManager.createNamedQuery("getAttempts", AttemptEntity.class);
         for (AttemptEntity attempt : listOfSession.getResultList()) {
@@ -55,13 +55,15 @@ public class PointsChecker extends NotificationBroadcasterSupport implements Fir
         }
     }
 
-    private void setSessionPointsBad () {
+    public void setSessionPointsBad () {
         sessionsPointsBad.clear();
         TypedQuery<AttemptEntity> listOfSession = entityManager.createNamedQuery("getAttempts", AttemptEntity.class);
         for (AttemptEntity attempt : listOfSession.getResultList()) {
             int currentNumberBad = sessionsPointsBad.get(attempt.getSessionId()) == null ? 0 : sessionsPointsBad.get(attempt.getSessionId());
             if (Objects.equals(attempt.getIshit(), "No")){
                 sessionsPointsBad.put(attempt.getSessionId(), currentNumberBad + 1);
+            } else{
+                sessionsPointsBad.put(attempt.getSessionId(), currentNumberBad);
             }
         }
     }
