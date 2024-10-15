@@ -1,0 +1,704 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology//"
+     xml:base="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology//"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:LeagueOfLegends-ontology="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/1.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveEnemies -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveEnemies">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHavePlacement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHavePlacement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top_Shooters -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top_Shooters">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHavePlacement"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun_homeland -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun_homeland">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun_wars -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun_wars">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+                                    <owl:Class>
+                                        <owl:complementOf>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland"/>
+                                                <owl:hasValue rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+                                            </owl:Restriction>
+                                        </owl:complementOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveEnemies"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Role"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/toHaveHomeland"/>
+                                                        <owl:hasValue rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ari -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ari">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ashe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ashe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Freljord"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Bildgwater -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Bildgwater">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Braum -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Braum">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Freljord"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Darius -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Darius">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Demasiya -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Demasiya">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Dreivan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Dreivan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ekko -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ekko">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Freljord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Freljord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/GapingHole -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/GapingHole">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Garen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Garen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Darius"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Demasiya"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jinx -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jinx">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Vai"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Katarina -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Katarina">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ari"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/KhaZix -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/KhaZix">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Rengar"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/GapingHole"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Lucian -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Lucian">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Trash"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Viego"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Luxe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Luxe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Demasiya"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Pyke -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Pyke">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Bildgwater"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Rengar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Rengar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Reykan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Reykan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Saylas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Saylas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Garen"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Saylas"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Senna -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Senna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Trash"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Viego"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shurima -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shurima">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Sweyn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Sweyn">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Targon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Targon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tarik -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tarik">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Targon"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Timo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Timo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+        <LeagueOfLegends-ontology:toHaveEnemies rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Pyke"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Placement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Trash -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Trash">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Vai -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Vai">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Veigar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Veigar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Viego -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Viego">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warwick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warwick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Territory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zerat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zerat">
+        <rdf:type rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        <LeagueOfLegends-ontology:toHaveHomeland rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shurima"/>
+        <LeagueOfLegends-ontology:toHavePlacement rdf:resource="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Killer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shooter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tank"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warrior"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Wizard"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ari"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ashe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/BandlCity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Bildgwater"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Braum"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Carry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Darius"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Demasiya"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Dreivan"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ekko"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Freljord"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/GapingHole"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Garen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Ionia"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jinx"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Jungle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Katarina"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/KhaZix"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Lucian"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Luxe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Mid"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Nocsus"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Pyke"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Rengar"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Reykan"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Saylas"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Senna"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/ShadowIslands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Shurima"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Support"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Sweyn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Targon"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Tarik"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Timo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Top"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Trash"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Vai"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Veigar"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Viego"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Warwick"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zaun"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/timur/ontologies/2024/9/LeagueOfLegends-ontology/Zerat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
