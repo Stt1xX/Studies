@@ -1,17 +1,17 @@
 # посмотреть всех убийц
-killer(X).
+role(killer, X).
 
 # посмотреть с какой территории Треш
-homeland(X,trash).
+homeland(X, trash).
 
 # посмотреть, есть ли враги у казикса
 enemies(khaZix, _); enemies(_, khaZix).
 
 # посмотреть магов из Бандл-Сити, играющих на топе или на миде
-wizard(X), homeland(bandlCity, X), (role(top, X); role(mid, X)).
+role(wizard, X), homeland(bandlCity, X), (position(top, X); position(mid, X)).
 
 # посмотреть всех врагов Ноксуса
 {Z}/(wars(nocsus, Y), homeland(Y, Z)).
 
 # посмотреть всех воинов и убийц играющих против магов на одной линии
-(killer(X); warrior(X)), wizard(Y), role(Role, X), role(Role, Y).
+(role(killer, X); role(warrior, X)), role(wizard, Y), position(Pos, X), position(Pos, Y).
