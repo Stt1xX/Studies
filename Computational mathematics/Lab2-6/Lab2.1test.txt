@@ -1,0 +1,8 @@
+{
+  "method" : "3",
+  "equalization" : 2,
+  "left" : 0,
+  "right" : "10,2",
+  "accuracy" : 0.001,
+  "approach" : ""
+}
