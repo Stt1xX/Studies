@@ -1,8 +1,6 @@
 {
-  "left_border" : 5,
-  "right_border" : 15,
-  "equation_number" : 3,
-  "accuracy" : 0.1,
-  "h_value" : 2,
-  "y0_value" : 13
+  "adjust_code" : 1,
+  "x_values" : [0.1, 0.2, 0.3, 0.4, 0.5],
+  "y_values" : [1.25, 2.38, 3.79, 5.44, 7.14],
+  "argument" : 0.22
 }

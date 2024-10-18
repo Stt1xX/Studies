@@ -44,11 +44,8 @@ def print_values(values, header):
     print("----------------------------\n")
 
 def solve(specified_set, generated_set):
-    print_values(find_corell_coefs(generated_set), "Заданная числовая последовательность")
-    print_values(find_corell_coefs(specified_set), "Сгенерированная числовая последовательность")
-
-
-tmp_set = get_values_from_xlsx()
-# Сгенерированная ЧП
-solve(tmp_set[0], tmp_set[1])
-
+    spec = find_corell_coefs(specified_set)
+    gen = find_corell_coefs(generated_set)
+    print_values(spec, "Заданная числовая последовательность")
+    print_values(gen, "Сгенерированная числовая последовательность")
+    print_values(abs((np.array(spec) - np.array(gen)) / np.array(gen))  * 100, "Процентное отношение")

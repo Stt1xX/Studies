@@ -16,4 +16,3 @@ def generate_values():
             result_arr.append(expon.rvs(scale=A1_value, loc=0))
     return result_arr
 
-print(generate_values())

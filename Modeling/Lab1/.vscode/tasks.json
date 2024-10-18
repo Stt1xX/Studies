@@ -4,11 +4,11 @@
         {
             "type": "shell",
             "label": "Run python",
-            "command": "python ${file}",
+            "command": "python3 ${file}",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": "True"
             }
         }
     ]
