@@ -1,0 +1,1 @@
+WineDataset.csv можно найти по [ссылке](https://www.kaggle.com/datasets/davorbudimir/winedataset?resource=download)
