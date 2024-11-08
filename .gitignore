@@ -1,5 +1,5 @@
 *.gz
-ArtificialIntelligenceSystems/Lab3/.vscode/tasks.json
+**/.vscode/tasks.json
 **/.idea
 **/__pycache__
 **/cmake-build-*
