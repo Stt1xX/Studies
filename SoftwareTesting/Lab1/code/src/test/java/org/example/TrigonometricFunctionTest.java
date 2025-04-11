@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import static java.lang.Math.PI;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FirstTaskTest {
+public class TrigonometricFunctionTest {
 
     final double DELTA = 0.0001;
 

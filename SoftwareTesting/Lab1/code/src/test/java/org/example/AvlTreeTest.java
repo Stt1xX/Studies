@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class SecondTaskTest {
+public class AvlTreeTest {
 
     private AvlTree avlTree;
 
