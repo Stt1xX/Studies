@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_rshd
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: rshd_lab1
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    ports:
+      - "5432:5432"
