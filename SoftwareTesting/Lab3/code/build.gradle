@@ -21,6 +21,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
-
     systemProperty "browser", System.getProperty("browser", "firefox")
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    reports {
+        html.required = true
+        junitXml.required = true
+    }
 }
