@@ -2,7 +2,9 @@ package org.example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -25,7 +27,7 @@ public class AvlTreeTest {
         avlTree.insert(30);
 
         int result = avlTree.search(20);
-        Assertions.assertEquals(20, result);
+        assertEquals(20, result);
     }
 
     @Test
@@ -35,7 +37,7 @@ public class AvlTreeTest {
         avlTree.insert(30);
 
         int result = avlTree.search(40);
-        Assertions.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @ParameterizedTest
@@ -47,7 +49,7 @@ public class AvlTreeTest {
 
         String result = avlTree.toString();
         String expected = arrayToString(expectedOrder);
-        Assertions.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -59,7 +61,7 @@ public class AvlTreeTest {
         avlTree.delete(10);
 
         int result = avlTree.search(10);
-        Assertions.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @Test
@@ -72,7 +74,7 @@ public class AvlTreeTest {
         avlTree.delete(20);
 
         int result = avlTree.search(20);
-        Assertions.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @Test
@@ -85,7 +87,7 @@ public class AvlTreeTest {
         avlTree.delete(10);
 
         int result = avlTree.search(10);
-        Assertions.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     private static Stream<Arguments> provideInsertTestCases() {
@@ -102,6 +104,92 @@ public class AvlTreeTest {
             sb.append(el).append(" ");
         }
         return sb.toString().trim();
+    }
+
+
+
+    @Test
+    public void testRootInsertSingleElement() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(10, tree.getRoot().getKey());
+    }
+
+    @Test
+    public void testRootInsertMultipleElements() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(20);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(5);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(15);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(30);
+        assertEquals(10, tree.getRoot().getKey());
+    }
+
+    @Test
+    public void testRootDeleteRootElement() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(20);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(5);
+        assertEquals(10, tree.getRoot().getKey());
+
+        tree.delete(10);
+        assertEquals(20, tree.getRoot().getKey());
+
+        tree.delete(20);
+        assertEquals(5, tree.getRoot().getKey());
+
+        tree.delete(5);
+        assertNull(tree.getRoot());
+    }
+
+    @Test
+    public void testHeightInsertSingleElement() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(1, tree.getRoot().getHeight());
+    }
+
+    @Test
+    public void testHeightInsertMultipleElements() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(1, tree.getRoot().getHeight());
+        tree.insert(20);
+        assertEquals(2, tree.getRoot().getHeight());
+        tree.insert(5);
+        assertEquals(2, tree.getRoot().getHeight());
+        tree.insert(15);
+        assertEquals(3, tree.getRoot().getHeight());
+        tree.insert(30);
+        assertEquals(3, tree.getRoot().getHeight());
+    }
+
+    @Test
+    public void testDeleteRootElement() {
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(20);
+        assertEquals(10, tree.getRoot().getKey());
+        tree.insert(5);
+        assertEquals(10, tree.getRoot().getKey());
+
+        tree.delete(10);
+        assertEquals(20, tree.getRoot().getKey());
+
+        tree.delete(5);
+        assertEquals(20, tree.getRoot().getKey());
+
+        tree.delete(20);
+        assertNull(tree.getRoot());
     }
 }
 

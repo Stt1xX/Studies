@@ -1,4 +1,7 @@
 package org.example;
 
-public class Computable {
+import java.math.BigDecimal;
+
+public interface Computable {
+    BigDecimal compute(double x);
 }

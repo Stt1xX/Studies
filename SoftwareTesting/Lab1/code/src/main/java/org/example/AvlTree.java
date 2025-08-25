@@ -1,5 +1,8 @@
 package org.example;
 
+import lombok.Getter;
+
+@Getter
 public class AvlTree {
 
     private AvlTreeNode root;
@@ -62,7 +65,7 @@ public class AvlTree {
 
             return balanceTree(root);
         }
-        return root;
+        return balanceTree(root);
     }
 
     private AvlTreeNode insertRec(AvlTreeNode root, int key){
@@ -144,9 +147,10 @@ public class AvlTree {
         }
     }
 
-    private static class AvlTreeNode {
-        int key;
-        int height;
+    @Getter
+    public static class AvlTreeNode {
+        private int key;
+        private int height;
         AvlTreeNode left, right;
 
         AvlTreeNode(int key){
